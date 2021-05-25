@@ -36,14 +36,21 @@ Ryan
 
 James
 ---------------
-8)Healthy food calorie tracking application
-	-enter foods and get nutritional info for food.
-	-enter calories and should give suggestions on food (meals to eat)
+8) Health and Fitness Application
+        -User can set weight and health goals
+	-Track BMI and other health info by entering user information
+	-enter calories and give meal(breakfast/lunch/dinner/snack) suggestions based on cals(can be filtered to vegan/vegetarian/pescatarian)
+	-enter a muscle group to give workout routine to hit those muscle groups(depending if you want to build muscle, tone muscle, or lose fat)
+	-managers can create meals and workouts
+	-APIs: Food, Workouts?
 
-9) trivia game
-	-different categories (science, movies etc)
-	-various questions
-	-get points for correct answers
+9) Trivia Game
+	-different categories (science, movies, history etc)
+	-Users will get asked 6? multiple choice questions one per turn (one for each category)
+	-User gets points for each correct answer 	
+	-Winner is who has the most points (if tied bonus questions will be asked)
+	-managers can create questions by category 
+	-APIs: Trivia?
 
 
 	
