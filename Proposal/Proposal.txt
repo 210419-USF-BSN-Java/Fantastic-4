@@ -1,0 +1,28 @@
+Type of project - Trivia app.
+Team lead - Raphael
+Git flow - Nolan
+
+Description:
+It is a trivia game with different categories and users will be asked a number of questions (6) and each users will have the option of choosing between different question sets.
+
+Based on how many questions they are going to get a score
+They can see their score against others on a leader board.
+
+
+user--> choose questions set----> answer a bunch of random questions ------> score on leader board
+				|-flag a certain question
+admin--> add topic and questions.---> edit questions
+	|-remove people from leader board
+	|-ban or suspend or remove accounts
+	|- view  and resolve  questions
+
+
+--regular users and admin
+-admin can add new question sets
+
+
+
+
+-Stretch goal
+2 people can play at the same time
+
