@@ -1,0 +1,28 @@
+Team: Fantastic-4
+Date: 5/26/2021
+Week: 6
+
+Raphael:
++Studied Spring 
++Created some UI screens
+
+
+
+
+
+Ryan:
+
++Studied angular
+
+
+James:
++Studied angular
++Created an ERD for database
+
+
+Nolan:
++Studied angualar & Spring
+
+--TODO
+Create models and interfaces for DAOs and Service Layer
+Setup ec2 and jenkins
