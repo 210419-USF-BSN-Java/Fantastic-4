@@ -1,0 +1,29 @@
+Team: Fantastic-4
+Date: 5/27/2021
+Week:6
+
+Ryan:
++ Created models for projects
++ Implemented service layer interfaces
+
+Nolan:
++ Ec2 setup and Jenkins set up
+
+James:
++Revision of database structure
+
+Raphael:
++ Looking at the angular material vs. bootstrap
+
+--TODOs
+-Service methods fully implemented
+-Setup web mvc
+-Setup db
+
+
+
+
+
+
+
+
