@@ -1,0 +1,30 @@
+Team: Fantastic-4
+Date: 5/28/2021
+Week:6
+
+
+Nolan:
++Spring boot project set up
++ Got database setup on AWS RDS
+
+James:
++Setup secondary ec2
+
+
+Raphael:
++ Started creating log in page and signup page for front-end
+
+
+--TODOs
+--Get Angular project set up
+--Create views
+-- Work on the admin services
+--Work on REST template
+-- Continue configuring Jenkins
+
+
+
+
+
+
+
