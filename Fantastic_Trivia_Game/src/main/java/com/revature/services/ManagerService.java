@@ -8,9 +8,5 @@ public interface ManagerService {
 	public boolean removeQuestionSet(QuestionSet delSet);
 	public boolean addQuestionSet(QuestionSet delSet);
 	public boolean editAccountStatus(int statusId);//approve, deny, or ban an account
-	
-	
-	
-	
 
 }
