@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: 'Nunito', sans-serif;
+}
+.btn-primary{
+    background-color: #FFC107;
+    border-color:#FFC107;
+}
+
+.btn-primary:hover{
+    background-color: #e9b007;
+    border-color:#e9b007;
+}
+
+.btn-primary:focus{
+    background-color: #FFC107;;
+    border-color:#FFC107;
+}
