@@ -5,12 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { NewGameComponent } from './components/new-game/new-game.component';
+import { NewCategoryComponent } from './components/new-category/new-category.component';
+import { UserlistComponent } from './components/userlist/userlist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ProfileComponent,
+    NewGameComponent,
+    NewCategoryComponent,
+    UserlistComponent
   ],
   imports: [
     BrowserModule,
