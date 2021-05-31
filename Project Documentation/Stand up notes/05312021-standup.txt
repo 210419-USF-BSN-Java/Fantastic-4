@@ -1,0 +1,28 @@
+Date:5/31/2021
+Week:7
+
+
+Raphael:
++ created anglar application
++ added more views
+-> Start adding functionality
+
+Nolan
++EC2 setup
++Jenkins project working
+--> end set up for logging
+
+Ryan:
++Done work on manager services
+
+James:
++ Connected to the trivia API
++created driver to test trivia API
+
+--TODO
+-Make the services for question pool
+-Score class needs to be setup to the db
+-Swtich implementing testing service methods
+-Implement manager services
+--Implement endpoints for login
+--Create more views
