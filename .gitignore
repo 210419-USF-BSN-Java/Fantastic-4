@@ -98,5 +98,41 @@ buildNumber.properties
 .history
 .ionide
 
+<<<<<<< HEAD
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,maven,visualstudiocode
 >>>>>>> aac9721a0dc4262b7383e132e81744be940beebf
+=======
+### Angular ###
+## Angular ##
+# compiled output
+dist/
+tmp/
+app/**/*.js
+app/**/*.js.map
+
+# dependencies
+node_modules/
+bower_components/
+
+# IDEs and editors
+.idea/
+
+# misc
+.sass-cache/
+connect.lock/
+coverage/
+libpeerconnection.log/
+npm-debug.log
+testem.log
+typings/
+
+# e2e
+e2e/*.js
+e2e/*.map
+
+# System Files
+.DS_Store/
+
+
+# End of https://www.toptal.com/developers/gitignore/api/eclipse,maven,visualstudiocode
+>>>>>>> 2391fa06e6dd15baafe5a162bffae431905eec8a
