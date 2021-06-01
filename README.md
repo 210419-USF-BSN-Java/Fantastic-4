@@ -1,5 +1,4 @@
 # Fantastic Trivia App
-Group Members: Shackleford Raphael, Martinez James, Clayton Nolan, Choy Ryan 
 
 ## Project Description
 
