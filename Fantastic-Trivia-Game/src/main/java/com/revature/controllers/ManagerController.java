@@ -16,6 +16,9 @@ public class ManagerController {
 	public ManagerController(ManagerService serv) {
 		this.mServ = serv;
 	}
+	
+	//@GetMapping(value = "/edit/{id}")
+	//public Re
 
 	
 	
