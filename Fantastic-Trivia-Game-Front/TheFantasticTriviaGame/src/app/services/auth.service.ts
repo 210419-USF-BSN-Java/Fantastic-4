@@ -18,7 +18,7 @@ export class AuthService {
     };
 
     //replace url
-    return this.http.post<User>('api/authenticate', credentials).pipe(
+    return this.http.post<User>('http://localhost:8080/api/authenticate', credentials).pipe(
      catchError(this.errorHandler));
    //console.log(this.http.get<User>('api/authenticate'));
 
