@@ -37,18 +37,26 @@ To-do list:
 
 ## Getting Started
    
-(include git clone command)
-(include all environment setup steps)
+* Start by clonning the repository
+>git clone https://github.com/210419-USF-BSN-Java/Fantastic-Trivia-App.git
 
-> Be sure to include BOTH Windows and Unix command  
-> Be sure to mention if the commands only work on a specific platform (eg. AWS, GCP)
+* Set enviroment variables for  
+> * Database password =  DB_PASS
+> * Database username =  DB_USER
+> * Database url =  DB_URL
+* Compile maven project
+* Run jar file
+> java -jar FantasticTrivia.jar
+* Navigate to Angular frontend folder
+* Then build and serve Angular App 
+> ng serve
 
-- All the `code` required to get started
-- Images of what it should look like
 
 ## Usage
 
-> Here, you instruct other people on how to use your project after they’ve installed it. This would also be a good place to include screenshots of your project in action.
+> If hosted locally navigate to http://localhost:4200/ to begin to login. Enter user name and password and click login. Then the user is at the homepage where they will
+have the option to select a category to be quizzed on. The user will then answer the multiple choice questions and submit their answers. The user will then be able to view their score on a leader board.
+
 
 ## Contributors
 
