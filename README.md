@@ -29,7 +29,7 @@ with questions pulled from a trivia API. Administrators can also view leaderboar
 List of features ready and TODOs for future development
 * Players can choose between over 20 categories and answer trivia questions     
 * Players can post their score to a leaderboard and compete with other players
-* Administrators can create custom Question sets from a question pool of over 5,000 questions via the https://opentdb.com trivia API
+* Administrators can create custom question sets from a question pool of over 5,000 questions via the https://opentdb.com trivia API
 
 To-do list:
 * Players would be able to report specific questions for review 
