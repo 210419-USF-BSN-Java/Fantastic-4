@@ -2,6 +2,8 @@
 body {
     font-family: 'Nunito', sans-serif;
 }
+
+/* primary button stryling */
 .btn-primary{
     background-color: #FFC107;
     border-color:#FFC107;
@@ -16,3 +18,18 @@ body {
     background-color: #FFC107;;
     border-color:#FFC107;
 }
+
+/*managing users icons*/
+
+.fa-trash-alt{
+    color:red;
+}  
+.fa-check-circle{
+color:darkgreen;
+}  
+.fa-info-circle{
+color:blue;
+}  
+.fa-ban{
+color:darkred;
+} 

@@ -1,0 +1,95 @@
+<div class='container h-100'>
+    <div class='row align-items-center mt-1 mb-2'>
+        <div class='col d-flex justify-content-center'>
+            <h3 class="fw-bold">Profile</h3>
+        </div>
+    </div>
+
+    <div class='row align-items-center mb-5'>
+        <div class='col d-flex justify-content-center'>
+            <div class="card shadow-sm " style="width:60rem;">
+                <div class="card-header">
+                    <h4 class="card-title">Your information</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class=" input-group form-group mb-3">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input name='username' type='text' placeholder='Username' class="form-control"
+                                    readonly>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="col input-group form-group mb-3">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input name='email' type='text' placeholder='Email' class="form-control " readonly>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                <input name='password' type='password' placeholder='Password' class="form-control "
+                                    readonly>
+                            </div>
+                        </div>
+                        <div *ngIf = 'edit' class="col-6">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Password</span>
+                                <input name='password' type='password' placeholder='Password' class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf='!edit'class=" gap-2 d-flex justify-content-end">
+                        <button class='btn btn-primary' type='submit'>Edit </button>
+                    </div>
+                    <div *ngIf='edit' class=" gap-2 d-flex justify-content-end">
+                        <button class='btn btn-outline-secondary' type='submit'>Back</button>
+                        <button class='btn btn-primary' type='submit'>Sign up </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--trivia information-->
+
+    <div class='row align-items-center'>
+        <div class='col d-flex justify-content-center'>
+            <div class="card shadow-sm " style="width:60rem;">
+                <div class="card-header">
+                    <h4 class="card-title">Your stats</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4 ">
+                            <p class="">Total score: {{totalScore}}</p>
+                            <p class="">Top category: {{totalScore}}</p>
+                            <p class="">Recent category: {{totalScore}}</p>
+                        </div>
+                        <div class="col-4">
+                            <p class="">Overall rank: {{totalScore}}</p>
+                            <p class="">Top score: {{totalScore}}</p>
+                            <p class="">Recent score: {{totalScore}}</p>
+                        </div>
+
+                        <div class="col-4">
+                            <select class = 'form-select'>
+                                <option value = '1'>First option</option>
+                            </select>
+                            <br>
+                            <p class="">Category score: {{totalScore}}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
