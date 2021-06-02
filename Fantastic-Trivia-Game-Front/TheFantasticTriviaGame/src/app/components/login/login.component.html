@@ -1,4 +1,6 @@
 <div class='container  h-100 pt-5 mt-5 '>
+   
+   <!--login card-->
     <div class='row align-items-center'>
         <div class='col d-flex justify-content-center'>
 
@@ -11,21 +13,28 @@
                             <span class="input-group-text">
                                 <i class="fas fa-user"></i>                               
                             </span>
-                            <input name = 'username' type='text' placeholder='Username' class="form-control">                            
+                            <input #username type='text' placeholder='Username' class="form-control">                            
                     </div>                        
                     <div class="input-group mb-3">                            
                             <span class="input-group-text">
                                 <i class="fas fa-key"></i>
                             </span>
-                            <input name = 'password' type='password' placeholder='Password' class="form-control">                            
+                            <input #password type='password' placeholder='Password' class="form-control">                            
                     </div>
                     
                     <div class=" gap-2 d-flex justify-content-end">
-                        <button class='btn btn-outline-secondary' type='submit'>Sign up</button>
-                        <button class='btn btn-primary' type='submit'>Login </button>
+                        <button class='btn btn-outline-secondary' type='submit'routerLink ='/signup'>Sign up</button>
+                        <button class='btn btn-primary' type='submit' (click)= 'validateCredentials(username.value, password.value)'>Login </button>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!--message-->
+    <div class='row'>
+        <div class ='col col d-flex justify-content-center'>
+            <p>{{message}}</p>
         </div>
     </div>
 </div>
