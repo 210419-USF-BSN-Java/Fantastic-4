@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
     else if(!isValidEmail){
       this.message = "Invalid email. Please try again."
     }else{
-      this.uServ.addUser(username,password,email);
+     // this.uServ.addUser(username,password,email);
     }
   }
 
