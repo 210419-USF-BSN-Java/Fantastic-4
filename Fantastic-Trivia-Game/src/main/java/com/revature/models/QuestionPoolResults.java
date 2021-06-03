@@ -2,7 +2,7 @@ package com.revature.models;
 
 import java.util.Arrays;
 
-public class Results {
+public class QuestionPoolResults {
 	
 	private String category;
 	private String type;
@@ -11,12 +11,12 @@ public class Results {
 	private String correct_answer;
 	private String[] incorrect_answers;
 	
-	public Results() {
+	public QuestionPoolResults() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Results(String category, String type, String difficulty, String question, String correct_answer,
+	public QuestionPoolResults(String category, String type, String difficulty, String question, String correct_answer,
 			String[] incorrect_answers) {
 		super();
 		this.category = category;
@@ -98,7 +98,7 @@ public class Results {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Results other = (Results) obj;
+		QuestionPoolResults other = (QuestionPoolResults) obj;
 		if (category == null) {
 			if (other.category != null)
 				return false;

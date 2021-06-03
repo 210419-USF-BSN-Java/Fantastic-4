@@ -32,9 +32,10 @@ public class ScoreService {
 	
 	// List score by set/category
 	public List<Score> showLeaderBoardBySet(int setId){
-		 sRepo.findScoreBySetId(setId);
 		
-		return null;
+		List<Score> sList = sRepo.findScoreBySetId(setId);
+		 
+		return sList;
 	}
 	
 	// Player submit score

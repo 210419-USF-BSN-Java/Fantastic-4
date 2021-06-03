@@ -12,7 +12,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.models.QuestionPool;
-import com.revature.models.Results;
 
 public class Driver {
 
@@ -20,7 +19,13 @@ public class Driver {
 		
 		RestTemplate rt = new RestTemplate();
 		
-		QuestionPool response = rt.getForObject("https://opentdb.com/api.php?amount=15&category=17&difficulty=medium&type=multiple", QuestionPool.class);
+		//QuestionPool response = rt.getForObject("https://opentdb.com/api.php?amount=15&category=17&difficulty=medium&type=multiple", QuestionPool.class);
+		
+		int numQuestions = 10;
+		int categoryId = 17;
+		String setDifficulty = "medium";
+		
+		QuestionPool response = rt.getForObject("https://opentdb.com/api.php?amount="+numQuestions+"&category="+categoryId+"&difficulty="+setDifficulty+"&type=multiple", QuestionPool.class);
 		
 	   //List<Results> qList = new ArrayList<>();
 		
