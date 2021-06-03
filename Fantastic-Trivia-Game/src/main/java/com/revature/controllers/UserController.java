@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.models.User;
 import com.revature.services.UserService;
 
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {
@@ -43,8 +45,8 @@ public class UserController {
 		return new ResponseEntity<List<User>>(retrieved, HttpStatus.OK);
 	}
 	
-	@PostMapping(value="/login")
-	public ResponseEntity<String> authenticate(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password){
+	@PostMapping(value = "/login")
+	public ResponseEntity<User> authenticate(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password){
 		
 		User user = uServ.logIn(username, password);
 		
@@ -53,10 +55,10 @@ public class UserController {
 			responseHeaders.set("Authorization", user.getId()+ ":" + user.getRoleId());
 			
 			String message = "Login Successful";
-			return new ResponseEntity<>(message, responseHeaders, HttpStatus.ACCEPTED);
+			return new ResponseEntity<>(user, responseHeaders, HttpStatus.ACCEPTED);
 		} else {
 			String message = "Login Unsuccessful";
-			return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+			return new ResponseEntity<>(user, HttpStatus.CONFLICT);
 		}
 		
 	}
