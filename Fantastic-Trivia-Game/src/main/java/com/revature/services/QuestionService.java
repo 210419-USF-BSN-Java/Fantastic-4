@@ -22,14 +22,45 @@ public class QuestionService {
 		this.qRepo = qRepo;
 	}
 	
-	// can view a specific set from it
-		public List<QuestionSet> viewAllQuestionSets() {
-			
+	// Manager edit a question set
+		public String editQuestionSet(QuestionSet editSet) {
+
+			return null;
+		}
+
+	// Manager remove a question set
+		public String removeQuestionSet(QuestionSet delSet) {
+
 			return null;
 		}
 		
+	// Manager add a question set
+		public QuestionSet addQuestionSet(int categoryId, int numQuestions, int difficultyId){
+			
+			return qRepo.saveAndFlush(new QuestionSet(categoryId,numQuestions,difficultyId));
+		}
+	
+	// can view all question sets
+		public List<QuestionSet> viewAllQuestionSets() {
+			
+			return qRepo.findAll();
+		}
+		
+	// Player Selects Question Set
+		public QuestionSet selectQuestionSet(int id) {
+			QuestionSet qSet = qRepo.getById(id);
+			
+			return qSet;
+		}
+		
 	// This is the service to get questions from API
-		public String getQuestionsFromSet(QuestionSet questionSet) {
+		public String getQuestionsFromSet(QuestionSet qSet) {
+			
+			int categoryId = qSet.getCategoryId();
+			int difficultyId = qSet.getDifficultyId();
+			int numQuestions = qSet.getNumQuestions();
+			
+			
 			
 			return null;
 		}
