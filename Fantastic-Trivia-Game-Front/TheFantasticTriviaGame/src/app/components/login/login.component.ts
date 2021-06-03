@@ -26,10 +26,10 @@ export class LoginComponent implements OnInit {
 
     this.auth.login("user", "pass").subscribe(response => {
       console.log("this is : " + response);
-      //this.user = response; //fix
+      this.user = response; 
       //replace dummy user
-      this.user = { id: 1, username: 'username', password: 'password', email: 'email@Test.com' };
-      console
+      //this.user = { id: 1, username: 'username', password: 'password', email: 'email@Test.com' };
+      //console
     },
 
       error => {
