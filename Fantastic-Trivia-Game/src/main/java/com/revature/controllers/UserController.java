@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.User;
@@ -28,5 +29,20 @@ public class UserController {
 		User retrieved = uServ.searchUsersById(id);
 		return new ResponseEntity<User>(retrieved, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
+	public User testPage() {
+		User u = new User();
+		u.setId(3);
+		u.setUsername("testname");
+		u.setPassword("pass");
+		u.setRoleId(1);
+		u.setStatusId(1);
+		u.setEmail("test@test.com");
+		
+		return u;
+		
+	}
+	
 
 }
