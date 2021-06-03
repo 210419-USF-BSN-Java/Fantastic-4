@@ -24,9 +24,10 @@ export class LoginComponent implements OnInit {
     let isValidPassword = this.userCredValidation.validateUsername(password);
     //validate username and password here
 
-    this.auth.login("user", "pass").subscribe(response => {
+    this.auth.login(username, password).subscribe(response => {
       console.log("this is : " + response);
-      this.user = response; 
+      console.log(response);
+      //this.user = response; 
       //replace dummy user
       //this.user = { id: 1, username: 'username', password: 'password', email: 'email@Test.com' };
       //console
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
           //fix method
           this.message = 'Please contact system administrator.';
         } else {
+          console.log(error);
           this.message = 'Invalid username or password. Please try again.';
         }
       });
