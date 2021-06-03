@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.revature.models.QuestionSet;
 import com.revature.models.Score;
+import com.revature.models.User;
 import com.revature.repository.ScoreRepository;
 
 @Service
@@ -22,14 +23,35 @@ public class ScoreService {
 	public ScoreService(ScoreRepository sRepo) {
 		this.sRepo = sRepo;
 	}
-
-	public List<Score> showLeaderBoard() {
+	
+	// List all scores
+	public List<Score> showLeaderBoardAll() {
+		
+		return sRepo.findAll();
+	}
+	
+	// List score by set/category
+	public List<Score> showLeaderBoardBySet(int setId){
+		 sRepo.findScoreBySetId(setId);
 		
 		return null;
 	}
-
-	public boolean submitScore(Score s) {
+	
+	// Player submit score
+	public Score submitScore(Score s) {
 		
-		return false;
+		return sRepo.saveAndFlush(s);
+	}
+	
+	// Manager delete score
+	public int deleteScore(int scoreId) {
+		
+		Score score = sRepo.getById(scoreId);
+		if(score != null) {
+			sRepo.delete(score);
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 }
