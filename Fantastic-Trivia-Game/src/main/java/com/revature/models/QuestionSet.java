@@ -30,9 +30,8 @@ public class QuestionSet {
 		super();
 	}
 
-	public QuestionSet(int id, int categoryId, int numQuestions, int difficultyId) {
+	public QuestionSet(int categoryId, int numQuestions, int difficultyId) {
 		super();
-		this.id = id;
 		this.categoryId = categoryId;
 		this.numQuestions = numQuestions;
 		this.difficultyId = difficultyId;
