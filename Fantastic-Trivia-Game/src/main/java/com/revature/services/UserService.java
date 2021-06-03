@@ -72,7 +72,6 @@ public class UserService {
 			return 0;
 		}
 
-		
 	}
 	
 	// List all Users
@@ -81,9 +80,19 @@ public class UserService {
 		return uRepo.findAll();
 	}
 
-	// User can update their profile information
-	public boolean updateProfile(User u) {
+	// User can update their profile information, returns edited user
+	public User updateProfile(int userId, String choice, String update) {
+		User editUser = uRepo.findUserById(userId);
+		
+		if(choice.equals("Username")) {
+        	editUser.setUsername(update);
+        }else if(choice.equals("Email")) {
+        	editUser.setEmail(update);
+        }else if(choice.equals("Password")) {
+        	editUser.setPassword(update);
 
-		return false;
+        }
+
+		return editUser; //Is this updated in database?
 	}
 }

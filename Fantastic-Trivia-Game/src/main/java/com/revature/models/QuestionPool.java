@@ -6,23 +6,23 @@ import java.util.List;
 
 public class QuestionPool{
 	
-	private Results[] results;
+	private QuestionPoolResults[] results;
 
 	public QuestionPool() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public QuestionPool(Results[] results) {
+	public QuestionPool(QuestionPoolResults[] results) {
 		super();
 		this.results = results;
 	}
 
-	public Results[] getResults() {
+	public QuestionPoolResults[] getResults() {
 		return results;
 	}
 
-	public void setResults(Results[] results) {
+	public void setResults(QuestionPoolResults[] results) {
 		this.results = results;
 	}
 
