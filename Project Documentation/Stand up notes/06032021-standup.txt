@@ -1,0 +1,24 @@
+Fantastic-4
+Date 6/3/2021
+Week:7
+
+Ryan:
++Junit testing set up
+-solving an the error for the tests "SLF4J: Class path contains multiple SLF4J bindings"
+
+James
++Set up repository for score and qset 
++set up service layer methods with some logic for score and question sets
++need to fully implement service layer methods
+
+Nolan
++Got most of the user endpoints set up
++ looking at implementing the log in feature
+
+Raphael
++added more views to the Angular application (questions and leaderboard)
++ added functionality to the the sign up page
++ set up routing links for navigation bar for user
+
+
+

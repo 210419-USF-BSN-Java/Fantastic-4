@@ -1,0 +1,20 @@
+Team:Fantastic -4
+Date: 6/2/2021
+Week: 7
+
+James:
++Updated the readme file on repository
++Setup the "score" model
+
+Ryan:
++Looked up tutorial on how to use JUnit with spring and will implement
+
+Nolan
++ Update readme
++Worked on the login end points
+-Working on fixing issues with returning the session token
+
+Raphael
++ Started adding functionallity to views
++Currently working with dummy data with the Observables
++Started setting up rounting
