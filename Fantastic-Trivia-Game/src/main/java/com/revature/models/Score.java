@@ -27,17 +27,21 @@ public class Score {
 	
 	@Column(name = "rank", nullable = false)
 	private int rank;
+	
+	@Column(name = "category_id", nullable = false)
+	private int categoryId;
 
 	public Score() {
 		super();
 	}
 
-	public Score(int score, int userId, int setId, int rank) {
+	public Score(int score, int userId, int setId, int rank, int categoryId) {
 		super();
 		this.score = score;
 		this.userId = userId;
 		this.setId = setId;
 		this.rank = rank;
+		this.categoryId = categoryId;
 	}
 
 	public int getId() {
@@ -78,6 +82,16 @@ public class Score {
 
 	public void setRank(int rank) {
 		this.rank = rank;
+	}
+	
+	
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	@Override
