@@ -12,9 +12,15 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.Spy;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 
 import com.revature.models.QuestionPool;
+import com.revature.models.QuestionPoolResults;
 import com.revature.models.QuestionSet;
+import com.revature.models.QuestionSetDifficulty;
 import com.revature.models.User;
 import com.revature.repository.QuestionSetRepository;
 import com.revature.repository.UserRepository;
@@ -24,7 +30,11 @@ class QuestionServiceTest {
 	@Mock
 	private QuestionSetRepository qRepo = Mockito.mock(QuestionSetRepository.class);
 	
+	@Mock
+	private RestTemplate rt;
+	
 	@InjectMocks
+	@Spy
 	private QuestionService qServ = new  QuestionService(qRepo);
 	
 	QuestionSet qs = new QuestionSet(1,10,2);
@@ -86,7 +96,21 @@ class QuestionServiceTest {
 		int id = 1;
 		
 		QuestionPool qp = new QuestionPool();
-		//roadblock for now
+		QuestionSetDifficulty qDiff = new QuestionSetDifficulty();
+		
+		Mockito.when(qRepo.findQuestionSetDifficultyById(qs.getDifficultyId())).thenReturn(qDiff);
+		String setDifficulty = qDiff.getDifficulty();
+		int categoryId = qs.getCategoryId();
+		int numQuestions = qs.getNumQuestions();
+
+		
+		Mockito.when(rt.getForObject("https://opentdb.com/api.php?amount="+numQuestions+"&category="+categoryId+"&difficulty="+setDifficulty+"&type=multiple", QuestionPool.class)).thenReturn(qp);
+		
+		Mockito.when(qServ.getQuestionsFromSet(qs)).thenReturn(qp);
+		
+		assertNotNull(qServ.getQuestionsFromSet(qs));
+		
+		//roadblock
 	}
 	
 
