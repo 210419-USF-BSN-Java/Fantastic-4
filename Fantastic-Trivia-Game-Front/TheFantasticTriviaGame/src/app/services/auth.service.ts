@@ -11,15 +11,20 @@ import { catchError } from 'rxjs/operators';
 export class AuthService {
 
   constructor(private http: HttpClient) { }
-  login(username: string, password: string): Observable<User> {
+  login(username: string, password: string): Observable<String> {
     let credentials = {
       username: username,
       password: password
     };
 
     //replace url
-    return this.http.post<User>('http://localhost:8080/api/authenticate', credentials).pipe(
-     catchError(this.errorHandler));
+    var formData: any = new FormData();
+    formData.append("username", username);
+  	formData.append("password", password);
+
+  	return this.http.post<String>('http://localhost:8080/user/login', formData);
+    //return this.http.post<User>('http://localhost:8080/user/authenticate', credentials).pipe(
+     //catchError(this.errorHandler));
    //console.log(this.http.get<User>('api/authenticate'));
 
    //return this.http.get<User>('api/authenticate');
