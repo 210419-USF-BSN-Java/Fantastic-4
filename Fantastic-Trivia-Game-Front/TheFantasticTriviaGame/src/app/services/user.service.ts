@@ -18,9 +18,9 @@ export class UserService {
     formData.append("username", username);
     formData.append("password", password);
     formData.append("email", email);
-    // console.log( info);
+     console.log( formData);
 
-    return this.http.post(this.url + '/signup', formData).pipe(
+    return this.http.post(this.url + 'user/signup', formData,  {responseType: 'text'}).pipe(
       catchError(this.errorHandler));
   }
   editUser(username: string, password: string, email: string): Observable<any> {

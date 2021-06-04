@@ -9,22 +9,25 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class AuthService {
-
+  user?: User;
+  token?: string;
   constructor(private http: HttpClient) { }
   login(username: string, password: string): Observable<any> {
     let url: string = 'http://18.117.105.101:8090/';
-    
+
     let formData = new FormData();
     formData.append("username", username);
     formData.append("password", password)
 
     console.log(formData);
 
-    localStorage.setItem('token', "2:1");
-   // console.log(localStorage.getItem('token'));
-    return this.http.post<any>(url + '/user/login', formData, { observe: 'response' }).pipe(
-     tap(x=>console.log(x)),
-     tap(x=>console.log(x.headers.get('Authorization'))),
+    //localStorage.setItem('token', "2:1");
+    // console.log(localStorage.getItem('token'));
+    return this.http.post<User>(url + '/user/login', formData).pipe(
+      tap(x => {localStorage.clear();
+        this.token = x.id + ":" + x.roleId;
+        localStorage.setItem('token', this.token);
+      }),      
       catchError(this.errorHandler));
   }
   errorHandler(error: HttpErrorResponse) {
@@ -33,19 +36,19 @@ export class AuthService {
   parseToken(): number[] {
     let token = localStorage.getItem('token');
     if (!token) {
-    //  console.log(0);
+      //  console.log(0);
       return [0];
 
     } else {
       let tokenArr = token.split(':');
       let tokenN = new Array<number>(tokenArr.length);
-   //   console.log(tokenArr.length);
+      //   console.log(tokenArr.length);
       for (let i = 0; i < tokenArr.length; i++) {
         tokenN[i] = parseInt(tokenArr[i]);
-     //   console.log(i);
+        //   console.log(i);
       }
-    //  console.log("token arr");
-    //  console.log(tokenN);
+      //  console.log("token arr");
+      //  console.log(tokenN);
       return tokenN;
     }
   }

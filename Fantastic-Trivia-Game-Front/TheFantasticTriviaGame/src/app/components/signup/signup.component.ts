@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { InputValidationService } from 'src/app/services/input-validation.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,13 +11,24 @@ import { UserService } from 'src/app/services/user.service';
 export class SignupComponent implements OnInit {
   message: string = '';
 
-  constructor(private validation: InputValidationService, private uServ: UserService) { }
+  constructor(private validation: InputValidationService, private uServ: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   signup(username: string, password: string, pass2: string, email: string): void {
 
+    const myObserver = {
+      next: (response: any) =>  response       
+        ,
+      error: (error: Error) =>    console.log(error)
+          
+      
+    };
+    
+    
+    
+    
     let isValidUsername = this.validation.validateUsername(username);
     let isValidPassword = this.validation.validatePassword(password);
     let isValidEmail = this.validation.validateEmail(email);
@@ -30,29 +42,20 @@ export class SignupComponent implements OnInit {
     else if (!isValidEmail) {
       this.message = "Invalid email. Please try again."
     } else {
-      this.uServ.addUser(username, password, email).subscribe(response => console.log(response), 
-      error => this.message = 'Could not set up account. Please contact system administrator.');
+      this.uServ.addUser(username, password, email).subscribe(myObserver);
+        
+        /*response => response
+       // this.message ='Signup successful. Returning to login page...';
+       // setTimeout(() => {
+      //    this.router.navigate(['login']);
+     //   },3000);
+      ,
+        error => console.log(error),
+          //this.message = 'Could not set up account. Please contact system administrator.';
+      
+      }*/
     }
-        /*
-
-      this.auth.login("user", "pass").subscribe(response => {
-        console.log("this is : " + response);
-        this.user = response;
-        //replace dummy user
-        //this.user = { id: 1, username: 'username', password: 'password', email: 'email@Test.com' };
-        //console
-      },
-
-        error => {
-          this.errorMsg = error;
-          if (error.status == 404) {
-            //fix method
-            this.message = 'Please contact system administrator.';
-          } else {
-            this.message = 'Invalid username or password. Please try again.';
-          }
-        })
-    }*/
+    
   }
 
 }
