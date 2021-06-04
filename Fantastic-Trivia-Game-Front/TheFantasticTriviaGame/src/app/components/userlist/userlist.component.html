@@ -21,28 +21,17 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>Username1</td>
-                        <td>Email1</td>
+                    <tr *ngFor ="let user of userList">
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
                         <td>Overall Rank1</td>
                         <td>Number of Questions1 </td>
-                        <td>user</td>
+                        <td>{{user.roleId}}</td>
                         <td ><i class="fas fa-info-circle"></i> &nbsp;&nbsp;&nbsp;&nbsp;
                             <i class="far fa-check-circle"></i> &nbsp;&nbsp;
-                            <i class="far fa-trash-alt"></i>
+                            <i class="far fa-trash-alt" (click) ='deleteUser(user.id)'></i>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>Username2</td>
-                        <td>Email2</td>
-                        <td>Overall Rank2</td>
-                        <td>Number of Questions2</td>
-                        <td>super user</td>
-                        <td><i class="fas fa-info-circle"></i> &nbsp;&nbsp;&nbsp;&nbsp;
-                            <i class="fas fa-ban"></i> &nbsp;&nbsp;
-                           <a href=""> <i class="far fa-trash-alt" ></i></a>
-                        </td>
-                    </tr>
+                    </tr>                   
                 </tbody>
             </table>
 

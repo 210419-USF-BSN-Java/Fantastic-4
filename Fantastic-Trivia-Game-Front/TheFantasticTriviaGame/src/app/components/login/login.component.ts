@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   message: string = '';
   errorMsg?: string;
   public user?: User;
-  @Output() gotUserEvent = new EventEmitter<User>();
+ // @Output() gotUserEvent = new EventEmitter<User>();
   
 
   constructor(private userCredValidation: InputValidationService, private auth: AuthService, private router:Router) { }
@@ -29,38 +29,21 @@ export class LoginComponent implements OnInit {
     let isValidPassword = this.userCredValidation.validateUsername(password);
    
    //dummy data remove when login issues is fixed
-   this.user ={id:1,username:username, password:password, email:'', roleId:1};
-   console.log(this.user);
-   this.gotUserEvent.emit(this.user);
+  // this.user ={id:1,username:username, password:password, email:'', roleId:1};
+  // console.log(this.user);
+  // this.gotUserEvent.emit(this.user);
     //validate username and password here
 
-    this.auth.login(username, password);
+   
     
-    /*.subscribe(response => {
-      console.log("this is : " + response);
-      console.log(response);
-     // this.user = response; 
-      //replace dummy user
-     // this.user = { id: 1, username: 'username', password: 'password', email: 'email@Test.com', roleId :1 };
-      console.log(this.user);
-      this.gotUserEvent.emit(this.user);
-    },
+    const myObserver = {
+      next: (response: any) => {this.user = response; console.log('observer got' + response.headers.get('Authorization'));},
+      error: (error: Error) => console.error(error),
+    };
+    this.auth.login(username,password).subscribe(myObserver);
 
-      error => {
-        this.errorMsg = error.message;
-        if (error.status == 404) {
-          //fix method
-          this.message = 'Please contact system administrator.';
-        } else {
-         // this.message = 'Invalid username or password. Please try again.';
-          console.log(error);
-          //remove code below
-         // this.user = { id: 1, username: 'username', password: 'password', email: 'email@Test.com', roleId :1};
-         // console.log(this.user);
-        }
-      });*/
-
-      this.router.navigate(['new-game']);
+     // this.router.navigate(['new-game']);
+     this.router.navigate(['new-category']);
   }
 
 

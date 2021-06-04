@@ -1,4 +1,5 @@
 <!--change directive -->
+<!--for user-->
 <div *ngIf="!(url == '/login'||url =='/signup') &&token && token[1] == 1">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand ms-3">The FTG</a>
@@ -16,13 +17,34 @@
     </div>
   </nav>
 </div>
+
+<!--for admin-->
+<div *ngIf="!(url == '/login'||url =='/signup') &&token && token[1] == 2">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand ms-3">The FTG</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/new-category" disabled>Manage questions</a>
+        <a class="nav-item nav-link" routerLink="/manage-leaderboard">Manage Leaderboard</a>
+        <a class="nav-item nav-link" routerLink="/users">Manage Users</a>
+        <a class="nav-item nav-link" id ="logout" (click)="logout()">Profile</a>
+        <a class="nav-item nav-link" id ="logout" (click)="logout()">Logout</a>
+      </div>
+    </div>
+  </nav>
+</div>
 {{url}}
 <router-outlet ></router-outlet>
-
+<!--
 <p>-------testing data below--------------------------------------------</p>
+
 <app-login></app-login>
 <app-signup></app-signup>
 <app-profile></app-profile>
 <app-userlist></app-userlist>
 <app-new-category></app-new-category>
-<app-new-game></app-new-game>
+<app-new-game></app-new-game>-->

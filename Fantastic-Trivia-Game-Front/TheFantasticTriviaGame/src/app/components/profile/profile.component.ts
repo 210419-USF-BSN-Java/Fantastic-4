@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class ProfileComponent implements AfterContentInit {
   totalScore: string = '1';
   edit: boolean = false;
+  userId?:number;
   user:User = {id:1,username:'1', password:'pass',email:'10'};
   user1:User= {id:1,username:'1', password:'pass',email:'12'};
 
