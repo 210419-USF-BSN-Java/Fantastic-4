@@ -47,7 +47,6 @@ public class UserServiceTest{
 		
 	}//passed
 	
-	
 	@Test
 	public void logInTest() {
 		String username = "test";
@@ -68,26 +67,31 @@ public class UserServiceTest{
 	@Test
 	public void banUserTest() {
 		int id = 1;
-		
+		Mockito.when(userRepo.getById(id)).thenReturn(u);
 		u.setStatusId(2);
 		Mockito.when(userService.banUser(id)).thenReturn(u);
+		
 		assertEquals(u,userService.banUser(id));
-	}//passed
+	}//pass
 
 	@Test
 	public void permitUserTest() {
 		int id = 1;
+		Mockito.when(userRepo.getById(id)).thenReturn(u);
 		u.setStatusId(1);
 		Mockito.when(userService.permitUser(id)).thenReturn(u);
 		assertEquals(u,userService.permitUser(id));
-	}
+	}//pass
 	
 	@Test
 	public void deleteUserTest() {
 		int id = 1;
-		Mockito.when(userService.deleteUser(id)).thenReturn(1);
+		Mockito.when(userRepo.getById(id)).thenReturn(u);
+		Mockito.doNothing().when(userRepo).delete(u);
+		
+		
 		assertEquals(1, userService.deleteUser(id));
-	}
+	}//pass
 	
 	@Test
 	public void getAllUsersTest() {
@@ -95,7 +99,22 @@ public class UserServiceTest{
 		uList.add(u);
 		Mockito.when(userService.getAllUsers()).thenReturn(uList);
 		assertEquals(uList,userService.getAllUsers());
-	}
+	}//pass
+	
+	@Test
+	public void updateProfileTest() {
+	int id = 1;
+	String choice = "Username";
+	String update = "BigTest";
+	Mockito.when(userRepo.findUserById(id)).thenReturn(u);
+	u.setUsername(update);
+	Mockito.when(userService.updateProfile(id, choice, update)).thenReturn(u);
+	
+	assertEquals(u,userService.updateProfile(id, choice, update));
+		
+		
+	}//pass
 
+	
 
 }
