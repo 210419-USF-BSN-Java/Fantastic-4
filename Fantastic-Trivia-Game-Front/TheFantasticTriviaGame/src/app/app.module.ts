@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 //remove in final
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
+import { LeaderboardUComponent } from './components/leaderboard-u/leaderboard-u.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import { InMemoryDataService } from './services/in-memory-data.service';
     ProfileComponent,
     NewGameComponent,
     NewCategoryComponent,
-    UserlistComponent
+    UserlistComponent,
+    LeaderboardUComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
 
 
 
@@ -36,9 +40,9 @@ import { InMemoryDataService } from './services/in-memory-data.service';
       // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
-    //HttpClientInMemoryWebApiModule.forRoot(
-     // InMemoryDataService, { dataEncapsulation: false }
-   // )
+   // HttpClientInMemoryWebApiModule.forRoot(
+   //  InMemoryDataService, { dataEncapsulation: false }
+  //  )
     
   ],
   providers: [],
