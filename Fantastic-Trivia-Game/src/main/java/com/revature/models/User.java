@@ -35,9 +35,8 @@ public class User {
 		super();
 	}
 
-	public User(int id, String username, String password, String email, int roleId, int statusId) {
+	public User(String username, String password, String email, int roleId, int statusId) {
 		super();
-		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.email = email;

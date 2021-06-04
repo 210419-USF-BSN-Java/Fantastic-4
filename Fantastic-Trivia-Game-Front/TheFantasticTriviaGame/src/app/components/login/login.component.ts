@@ -42,8 +42,8 @@ export class LoginComponent implements OnInit {
     };
     this.auth.login(username,password).subscribe(myObserver);
 
-     // this.router.navigate(['new-game']);
-     this.router.navigate(['new-category']);
+      this.router.navigate(['new-game']);
+     //this.router.navigate(['new-category']);
   }
 
 

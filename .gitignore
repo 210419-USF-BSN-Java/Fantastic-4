@@ -1,4 +1,7 @@
 
+/.metadata/
+
+
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse,maven,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,maven,visualstudiocode
 
@@ -95,6 +98,10 @@ buildNumber.properties
 .history
 .ionide
 
+<<<<<<< HEAD
+# End of https://www.toptal.com/developers/gitignore/api/eclipse,maven,visualstudiocode
+>>>>>>> aac9721a0dc4262b7383e132e81744be940beebf
+=======
 ### Angular ###
 ## Angular ##
 # compiled output
@@ -128,3 +135,4 @@ e2e/*.map
 
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,maven,visualstudiocode
+>>>>>>> 2391fa06e6dd15baafe5a162bffae431905eec8a

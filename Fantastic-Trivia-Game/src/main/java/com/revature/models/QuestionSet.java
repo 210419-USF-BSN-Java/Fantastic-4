@@ -1,10 +1,14 @@
 package com.revature.models;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -30,9 +34,8 @@ public class QuestionSet {
 		super();
 	}
 
-	public QuestionSet(int id, int categoryId, int numQuestions, int difficultyId) {
+	public QuestionSet(int categoryId, int numQuestions, int difficultyId) {
 		super();
-		this.id = id;
 		this.categoryId = categoryId;
 		this.numQuestions = numQuestions;
 		this.difficultyId = difficultyId;
@@ -100,5 +103,7 @@ public class QuestionSet {
 			return false;
 		return true;
 	}
+	
 
+	
 }

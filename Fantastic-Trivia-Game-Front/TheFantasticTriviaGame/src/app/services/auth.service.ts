@@ -20,10 +20,10 @@ export class AuthService {
 
     console.log(formData);
 
-    localStorage.setItem('token', "2:2");
+    localStorage.setItem('token', "2:1");
    // console.log(localStorage.getItem('token'));
     return this.http.post<any>(url + '/user/login', formData, { observe: 'response' }).pipe(
-     tap(x=>console.log("method"+x)),
+     tap(x=>console.log(x)),
      tap(x=>console.log(x.headers.get('Authorization'))),
       catchError(this.errorHandler));
   }
