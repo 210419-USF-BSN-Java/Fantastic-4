@@ -38,6 +38,20 @@ public class ScoreService {
 		return sList;
 	}
 	
+	public List<Score> showLeaderBoardByCategory(int categoryId){
+		
+		List<Score> sList = sRepo.findScoreBycategoryId(categoryId);
+		 
+		return sList;
+	}
+	
+	public List<Score> showLeaderBoardByUser(int userId){
+		
+		List<Score> sList = sRepo.findScoreByUserId(userId);
+		 
+		return sList;
+	}
+	
 	// Player submit score
 	public Score submitScore(Score s) {
 		

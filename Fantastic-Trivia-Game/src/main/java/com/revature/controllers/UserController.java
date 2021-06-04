@@ -43,7 +43,7 @@ public class UserController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<User>> searchUsersById() {
+	public ResponseEntity<List<User>> getAllUsers() {
 		
 		List<User> retrieved = uServ.getAllUsers();
 		return new ResponseEntity<List<User>>(retrieved, HttpStatus.OK);
@@ -85,6 +85,27 @@ public class UserController {
 			return new ResponseEntity<>(message, HttpStatus.ACCEPTED);
 		} else {
 			String message = "Signup Unsuccessful";
+			return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+		}
+	}
+	
+	@PostMapping(value="/update")
+	public ResponseEntity<String> update(@RequestParam(name = "userId") int userId, @RequestParam(name = "username") String username, @RequestParam(name = "password") String password , @RequestParam(name = "email") String email){
+		
+		User user = uServ.searchUsersById(userId);
+
+		
+		if (user != null) {
+			user.setUsername(username);
+			user.setPassword(password);
+			user.setEmail(email);
+			
+			user = uServ.saveUser(user);
+			
+			String message = "Update Successful";
+			return new ResponseEntity<>(message, HttpStatus.ACCEPTED);
+		} else {
+			String message = "Update Unsuccessful";
 			return new ResponseEntity<>(message, HttpStatus.CONFLICT);
 		}
 	}

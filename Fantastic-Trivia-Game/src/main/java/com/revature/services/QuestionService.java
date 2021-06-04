@@ -91,5 +91,23 @@ public class QuestionService {
 			
 			return response;
 		}
+		
+		public QuestionSet getQuestionSetById(int id) {
+			try {
+				return qRepo.findQuestionSetById(id);
+			} catch (Exception e) {
+				return null;
+			}
+		}
+		
+		public List<QuestionSet> getQuestionSetByCategory(int categoryId) {
+			try {
+				return qRepo.findQuestionSetByCategoryId(categoryId);
+			} catch (Exception e) {
+				return null;
+			}
+		}
+		
+		
 
 }
