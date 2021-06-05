@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.models.QuestionSet;
 import com.revature.models.Score;
 import com.revature.services.QuestionService;
 import com.revature.services.ScoreService;

@@ -1,8 +1,6 @@
 package com.revature.models;
 
-import java.io.Serializable;
 import java.util.Arrays;
-import java.util.List;
 
 public class QuestionPool{
 	
