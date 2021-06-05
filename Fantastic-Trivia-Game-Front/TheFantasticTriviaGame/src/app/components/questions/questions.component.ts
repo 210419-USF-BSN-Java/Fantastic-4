@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./questions.component.css']
 })
 export class QuestionsComponent implements OnInit {
+  question:string='';
+  difficulty:string ='';
+  topic:string='';
 
   constructor() { }
 

@@ -19,6 +19,8 @@ export class AppComponent {
 
   logout(): void {
     //console.log(this.user);
+    this.authServ.clearSession();
+    this.router.navigate(['login']);
   }
 
   ngOnInit():void{
