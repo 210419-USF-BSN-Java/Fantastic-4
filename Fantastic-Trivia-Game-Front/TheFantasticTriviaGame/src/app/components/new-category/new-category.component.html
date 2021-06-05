@@ -7,34 +7,44 @@
                     <h4 class="card-title">New Category</h4>
                 </div>
                 <div class="card-body">
-                    <div class="input-group mb-3">                            
-                            <span class="input-group-text ">Select Category: </span>
-                            <input name = 'username' type='text' placeholder='category' class="form-control">                            
-                    </div>                        
-                    <div class="input-group mb-3">                           
-                            <span class="input-group-text ">Difficulty:</span>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Select Diffiulty</option>
-                                <option value="1">Easy</option>
-                                <option value="2">Medium</option>
-                                <option value="3">Hard</option>
-                              </select>
-                        
+                    <div class="input-group mb-3">
+                        <span class="input-group-text ">Select Category: </span>
+                        <select #category class="form-select" aria-label="Default select example">
+                            <option selected value = '0'>Select Category</option>
+                            <option *ngFor='let category of categoryArray' [value]='category.id'>{{category.name}}
+                            </option>
+                        </select>
                     </div>
-                    <div class="input-group mb-3">                            
-                            <span class="input-group-text">Number of Questions: </span>
-                            <input type='number' placeholder='1' class="form-control" value ='10' min='1' max ='50'>
-                        
+                    <div class="input-group mb-3">
+                        <span class="input-group-text ">Difficulty:</span>
+                        <select #difficulty class="form-select" aria-label="Default select example">
+                            <option selected value='0'>Select Difficulty</option>
+                            <option value="1">Easy</option>
+                            <option value="2">Medium</option>
+                            <option value="3">Hard</option>
+                        </select>
+
                     </div>
-                  
-                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Number of Questions: </span>
+                        <input #noQuestions type='number' placeholder='min 5, max 25' class="form-control"  min='5'
+                            max='25'>
+
+                    </div>
+
                     <div class=" gap-2 d-flex justify-content-end">
-                        <button class='btn btn-outline-secondary' type='submit'>Clear</button>
-                        <button class='btn btn-primary' type='submit'>Create </button>
+                        <button class='btn btn-outline-secondary' type='submit'
+                        (click)="category.value='0';difficulty.value ='0'; noQuestions.value=''">Clear</button>
+                        <button class='btn btn-primary' type='submit'
+                        (click)='createNewCategory(category.value,difficulty.value,noQuestions.value)'>Create
+                        </button>
                     </div>
                 </div>
+                <div class="card-footer">
+                    <p>{{message}}</p>
+                </div>
             </div>
+
         </div>
     </div>
 </div>
-
