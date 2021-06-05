@@ -22,7 +22,7 @@ public class ScoreServiceTest {
 	@InjectMocks
 	private ScoreService sServ = new ScoreService(sRepo);
 	
-	Score s = new Score(1,1,1,1);
+	Score s = new Score(1,1,1,1, 1);
 	List<Score> sList = new ArrayList<>();
 	
 	
