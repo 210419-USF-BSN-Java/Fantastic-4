@@ -34,17 +34,16 @@
             <!--current games-->
             <div *ngFor='let question of questions' class='card shadow m-3'>
                 <div class="card-header d-flex justify-content-between">
-                    <h6 *ngIf='question.difficultyId == 1' style="display:inline;">Easy</h6>
-                    <h6 *ngIf='question.difficultyId == 2' style="display:inline;">Medium</h6>
-                    <h6 *ngIf='question.difficultyId == 3' style="display:inline;">Hard</h6>
+                    <h6 style="display:inline;">{{difficultyNames[question.categoryId]}}</h6>
+                    
 
-                    <span (click)='deleteCategory(id)'><i class="far fa-trash-alt"></i></span>
+                    <span (click)='deleteCategory(question.id)'><i class="far fa-trash-alt"></i></span>
                 </div>
                 <a href="" class="text-decoration-none">
                     <div class="card-body">
 
-                        <p>{{nameGame}}</p>
-                        <span>Number of questions: {{nameGame}}</span>
+                        <p>{{categoryNames[question.categoryId]}}</p>
+                        <span>Number of questions: {{question.id}}</span>
 
                     </div>
                 </a>
