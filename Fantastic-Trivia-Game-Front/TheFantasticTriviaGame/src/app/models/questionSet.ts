@@ -7,6 +7,17 @@ export interface QuestionSet {
 }
 
 export enum category{
-    cat1,
-    cat2
+    Science,
+    Math,
+    Engineering,
+    Art,
+    Technology,
+    History
 }
+
+export enum difficulty{
+    Easy,
+    Medium,
+    Hard
+}
+
