@@ -16,7 +16,7 @@ public class QuestionSetDifficulty {
 	@Column(name= "difficulty_id")
 	private int id;
 	
-	@Column(name = "difficuly")
+	@Column(name = "difficulty")
 	private String difficulty;
 	
 
