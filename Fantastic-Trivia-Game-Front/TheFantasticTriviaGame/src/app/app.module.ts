@@ -15,6 +15,7 @@ import { LeaderboardUComponent } from './components/leaderboard-u/leaderboard-u.
 import { FormsModule } from '@angular/forms';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { ProfileUComponent } from './components/profile-u/profile-u.component';
+import { SelectCategoryComponent } from './components/select-category/select-category.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProfileUComponent } from './components/profile-u/profile-u.component';
     UserlistComponent,
     LeaderboardUComponent,
     QuestionsComponent,
-    ProfileUComponent
+    ProfileUComponent,
+    SelectCategoryComponent
   ],
   imports: [
     BrowserModule,

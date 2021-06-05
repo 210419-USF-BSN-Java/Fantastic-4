@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         if(this.auth.parseToken()[1] ==1){
           this.router.navigate(['new-game']);
         }else{
-          this.router.navigate(['new-category']);
+          this.router.navigate(['select-category']);
         }
       },
       error: (error: Error) => {

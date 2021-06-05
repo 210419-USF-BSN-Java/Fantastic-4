@@ -15,7 +15,7 @@ export class AuthService {
   login(username: string, password: string): Observable<any> {
     let url: string = 'http://18.117.105.101:8090/';
 
-    //url = 'http://localhost:8090/';
+    url = 'http://localhost:8090/';
 
     let formData = new FormData();
     formData.append("username", username);
