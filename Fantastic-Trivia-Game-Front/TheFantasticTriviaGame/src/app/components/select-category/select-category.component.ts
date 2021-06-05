@@ -9,14 +9,14 @@ import { QuestionSet, category, difficulty } from 'src/app/models/questionSet';
 export class SelectCategoryComponent implements OnInit {
   nameGame: string = "helooe";
   id: number = 1;
-
  
 
 
-  questions: QuestionSet[] = [{ id: 1, categoryId: 1, numQuestions: 5, difficultyId: 1 },
-  { id:2, categoryId: 3, numQuestions: 5, difficultyId: 1 },
-  { id: 3, categoryId: 2, numQuestions: 5, difficultyId: 1 }, 
-  { id: 4, categoryId: 1, numQuestions: 5, difficultyId: 1 }]
+  questions: QuestionSet[] = [
+  { id:1, categoryId: 2, numQuestions: 5, difficultyId: 1 },
+  { id:2, categoryId: 3, numQuestions: 5, difficultyId:3 },
+  { id: 3, categoryId: 4, numQuestions: 5, difficultyId: 2 }, 
+  { id: 4, categoryId: 1, numQuestions: 5, difficultyId: 3 }]
 
   categoryNames:string[]=[];
   difficultyNames:string[]=[];
@@ -26,13 +26,16 @@ export class SelectCategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryNames = new Array<string>(this.questions.length);
-    for(let i = 0; i<this.categoryNames.length; i++){
-      this.categoryNames[i] = category[this.questions[i].categoryId];
+    for(let i = 0; i<this.questions.length; i++){
+      this.categoryNames[i] = category[(this.questions[i].categoryId-1)];
+      console.log(this.categoryNames[i]);
+      console.log(this.questions[i]);
     }
 
     this.difficultyNames = new Array<string>(this.questions.length);
-    for(let i = 0; i<this.difficultyNames.length; i++){
-      this.difficultyNames[i] = category[this.questions[i].difficultyId];
+    for(let j = 0; j<this.questions.length; j++){
+      this.difficultyNames[j] = difficulty[(this.questions[j].difficultyId-1)];
+      console.log(this.difficultyNames[j]);
     }
 
  
