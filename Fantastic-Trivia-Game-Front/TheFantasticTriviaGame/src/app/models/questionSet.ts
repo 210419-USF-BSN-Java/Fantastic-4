@@ -3,16 +3,17 @@ export interface QuestionSet {
     id: number,
     categoryId: number,
     numQuestions: number,
-    difficultyId: number  
+    difficultyId: number
 }
 
 export enum category{
-    Science1,
-    Math2,
-    Engineering3,
-    Art4,
-    Technology5,
-    History6
+    //1
+    Science,
+    Math,
+    Engineering,
+    Art,
+    Technology,
+    History
 }
 
 export enum difficulty{

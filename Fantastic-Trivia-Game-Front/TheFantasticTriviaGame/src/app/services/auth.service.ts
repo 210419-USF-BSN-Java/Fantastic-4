@@ -29,7 +29,7 @@ export class AuthService {
       tap(x => {localStorage.clear();
         this.token = x.id + ":" + x.roleId;
         localStorage.setItem('token', this.token);
-      }),      
+      }),
       catchError(this.errorHandler));
   }
   errorHandler(error: HttpErrorResponse) {
