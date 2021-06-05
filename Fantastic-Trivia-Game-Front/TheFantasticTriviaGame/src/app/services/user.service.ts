@@ -38,15 +38,19 @@ export class UserService {
       catchError(this.errorHandler));
   }
   deleteUser(id: number): Observable<any> {
-    return this.http.delete(this.url + 'user/delete/' + id).pipe(
+    return this.http.delete(this.url + 'user/delete/' + id,{responseType: 'text'}).pipe(
       catchError(this.errorHandler));
   }
   banUser(id: number): Observable<any> {
-    return this.http.put(this.url + 'user/delete/' + id, 1).pipe(
+    return this.http.put(this.url + 'user/ban/' + id, 1,{responseType: 'text'}).pipe(
       catchError(this.errorHandler));
   }
   permitUser(id: number): Observable<any> {
-    return this.http.put(this.url + 'user/delete/' + id, 1).pipe(
+    return this.http.put(this.url + 'user/permit/' + id, 1,{responseType: 'text'}).pipe(
+      catchError(this.errorHandler));
+  }
+  getAllUsers():Observable<any>{
+    return this.http.get(this.url+'user').pipe(
       catchError(this.errorHandler));
   }
 

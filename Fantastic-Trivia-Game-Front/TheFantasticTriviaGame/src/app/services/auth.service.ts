@@ -23,7 +23,7 @@ export class AuthService {
 
     //localStorage.setItem('token', "2:1");
     // console.log(localStorage.getItem('token'));
-    return this.http.post<User>(url + '/user/login', formData).pipe(
+    return this.http.post<User>(url + 'user/login', formData).pipe(
       tap(x => {localStorage.clear();
         this.token = x.id + ":" + x.roleId;
         localStorage.setItem('token', this.token);
@@ -32,6 +32,10 @@ export class AuthService {
   }
   errorHandler(error: HttpErrorResponse) {
     return throwError(error);
+  }
+
+  clearSession():void{
+    localStorage.clear();
   }
   parseToken(): number[] {
     let token = localStorage.getItem('token');

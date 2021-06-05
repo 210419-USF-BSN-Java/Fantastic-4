@@ -19,9 +19,15 @@ export class SignupComponent implements OnInit {
   signup(username: string, password: string, pass2: string, email: string): void {
 
     const myObserver = {
-      next: (response: any) =>  response       
+      next: (response: any) => {this.message = response+'.'+ ' Returning to login page';      
+      setTimeout(() => {
+           this.router.navigate(['login']);
+          },3000);    
+    
+    }      
         ,
-      error: (error: Error) =>    console.log(error)
+      error: (error: Error) =>   { console.log(error);
+        this.message = 'Could not set up account. Please contact system administrator.';}
           
       
     };

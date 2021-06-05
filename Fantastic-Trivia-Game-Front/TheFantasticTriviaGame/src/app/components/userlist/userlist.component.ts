@@ -1,5 +1,7 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,22 +10,63 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./userlist.component.css']
 })
 export class UserlistComponent implements OnInit {
-   userList:User[] = [
-    {id:1,username:"1",password:"11",email:"1"},
-    {id:2,username:"11",password:"12",email:"21"},
-    {id:3,username:"22",password:"11",email:"31"},
-    {id:4,username:"121",password:"21",email:"41"},
-    {id:5,username:"121",password:"11",email:"51"}
-  ]
-
-  constructor(private uServ:UserService) { }
+  userList: User[] = [];
+  rowColor: string = 'bg-light';
+  currentUser: number = 0;
+  constructor(private uServ: UserService, private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.loadUsers();
+  }
+  // ngDoCheck():void{
+  //   this.loadUsers();
+  // }
+  permitUser(userId: number): void {
+    const myObserver = {
+      next: (response: any) => { console.log(response); this.loadUsers(); },
+      error: (error: Error) => console.error(error)
+    };
+    this.uServ.permitUser(userId).subscribe(myObserver);
+  }
+  banUser(userId: number): void {
+    const myObserver = {
+      next: (response: any) => { console.log(response); this.loadUsers(); },
+      error: (error: Error) => console.error(error)
+    };
+    this.uServ.banUser(userId).subscribe(myObserver);
   }
 
-  deleteUser(userId:number):void{
-    this.uServ.deleteUser(userId).subscribe();
-    this.userList.shift();
+  deleteUser(userId: number): void {
+    const myObserver = {
+      next: (response: any) => { console.log(response); this.loadUsers(); },
+      error: (error: Error) => console.error(error)
+    };
+    this.uServ.deleteUser(userId).subscribe(myObserver);
+    //this.userList.shift();
   }
+
+  loadUsers(): void {
+    const myObserver = {
+      next: (response: any) => {
+        this.userList = response;
+        this.currentUser = this.auth.parseToken()[0];
+
+        this.userList = this.userList.sort((n1,n2) => {
+          if (n1.id > n2.id) {
+              return 1;
+          }      
+          if (n1.id < n2.id) {
+              return -1;
+          }      
+          return 0;
+      });
+      },
+      error: (error: Error) => console.error(error)
+    };
+
+    this.uServ.getAllUsers().subscribe(myObserver);
+
+  }
+
 
 }
