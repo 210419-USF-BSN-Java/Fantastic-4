@@ -17,8 +17,8 @@ export enum category{
 }
 
 export enum difficulty{
-    Easy1,
-    Medium2,
-    Hard3
+    Easy,
+    Medium,
+    Hard
 }
 
