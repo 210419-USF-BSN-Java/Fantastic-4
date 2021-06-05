@@ -8,9 +8,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.revature.models.QuestionPool;
 import com.revature.models.QuestionSet;
-import com.revature.models.QuestionSetCategory;
 import com.revature.models.QuestionSetDifficulty;
-import com.revature.models.Score;
 import com.revature.repository.QuestionSetRepository;
 
 @Service
@@ -39,7 +37,7 @@ public class QuestionService {
             	editSet.setDifficultyId(update);
             }
             
-			return editSet; //Is this updated in database?
+			return qRepo.saveAndFlush(editSet); //Is this updated in database?
 		}
 
 	// Manager remove a question set
@@ -80,7 +78,6 @@ public class QuestionService {
 			int difficultyId = qSet.getDifficultyId();
 			int numQuestions = qSet.getNumQuestions();
 			
-			//QuestionSetCategory qSetCat = qRepo.findQuestionSetCategoryById(categoryId);
 			QuestionSetDifficulty qSetDiff = qRepo.findQuestionSetDifficultyById(difficultyId);
 			
 			String setDifficulty = qSetDiff.getDifficulty();  // make sure difficulty is lower case in DB
@@ -92,6 +89,7 @@ public class QuestionService {
 			return response;
 		}
 		
+		//Is this not the same as select question set?
 		public QuestionSet getQuestionSetById(int id) {
 			try {
 				return qRepo.findQuestionSetById(id);
@@ -100,6 +98,7 @@ public class QuestionService {
 			}
 		}
 		
+		//List question set by category
 		public List<QuestionSet> getQuestionSetByCategory(int categoryId) {
 			try {
 				return qRepo.findQuestionSetByCategoryId(categoryId);
