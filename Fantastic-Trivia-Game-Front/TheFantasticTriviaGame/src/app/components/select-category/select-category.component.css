@@ -1,0 +1,15 @@
+#card-list{
+    overflow-y: auto; 
+    padding-bottom: 4px; 
+    height:26rem;
+}
+
+.card{
+     min-width:15rem;
+      width:15rem; 
+      height:11rem;
+}
+
+.fa-trash-alt{
+    cursor:pointer;
+}

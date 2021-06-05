@@ -1,0 +1,58 @@
+<!--heading-->
+<div class='container h-100'>
+    <div class='row align-items-center mt-1 mb-2 '>
+        <div class='col d-flex justify-content-start '>
+            <h3 class="fw-bold">Select Category</h3>
+        </div>
+    </div>
+
+
+
+    <!--Subheading-->
+    <div class='row align-items-center mt-1 mb-2 ms-5'>
+        <div class='col d-flex '>
+            <h4>Select Game</h4>
+        </div>
+    </div>
+
+    <!--trivia information-->
+
+    <div class='row align-items-center  '>
+        <div class='col d-flex flex-wrap  justify-content-start' id='card-list'>
+
+            <!--new category-->
+            <div class='card shadow m-3 d-flex align-items-center justify-content-center text-center'>
+                <div class="card-body">
+                    <a routerLink='/new-category' class="stretched-link text-decoration-none">
+                        <p class="mt-4"><i class="fas fa-3x fa-plus"></i></p>
+                        <span>Create new game</span>
+                    </a>
+                </div>
+            </div>
+
+
+            <!--current games-->
+            <div *ngFor='let question of questions' class='card shadow m-3'>
+                <div class="card-header d-flex justify-content-between">
+                    <h6 *ngIf='question.difficultyId == 1' style="display:inline;">Easy</h6>
+                    <h6 *ngIf='question.difficultyId == 2' style="display:inline;">Medium</h6>
+                    <h6 *ngIf='question.difficultyId == 3' style="display:inline;">Hard</h6>
+
+                    <span (click)='deleteCategory(id)'><i class="far fa-trash-alt"></i></span>
+                </div>
+                <a href="" class="text-decoration-none">
+                    <div class="card-body">
+
+                        <p>{{nameGame}}</p>
+                        <span>Number of questions: {{nameGame}}</span>
+
+                    </div>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!--end of container-->
+</div>

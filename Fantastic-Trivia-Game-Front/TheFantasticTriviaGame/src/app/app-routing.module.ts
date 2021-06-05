@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NewCategoryComponent } from './components/new-category/new-category.component';
 import { NewGameComponent } from './components/new-game/new-game.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SelectCategoryComponent } from './components/select-category/select-category.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UserlistComponent } from './components/userlist/userlist.component';
 
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'new-game', component: NewGameComponent },
+  {path: 'select-category', component:SelectCategoryComponent},
   { path: 'leaderboard', component: LeaderboardUComponent },
   { path: 'profile', component: ProfileComponent },
 

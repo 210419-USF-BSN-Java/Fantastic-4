@@ -13,14 +13,20 @@ export class UserlistComponent implements OnInit {
   userList: User[] = [];
   rowColor: string = 'bg-light';
   currentUser: number = 0;
+  selectedUserId: number = 0;
   constructor(private uServ: UserService, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.loadUsers();
   }
-  // ngDoCheck():void{
-  //   this.loadUsers();
-  // }
+  closeModal(): void {
+    this.selectedUserId = 0;
+  }
+
+
+  viewUser(userId: number): void {
+    this.selectedUserId = userId;
+  }
   permitUser(userId: number): void {
     const myObserver = {
       next: (response: any) => { console.log(response); this.loadUsers(); },
@@ -51,15 +57,15 @@ export class UserlistComponent implements OnInit {
         this.userList = response;
         this.currentUser = this.auth.parseToken()[0];
 
-        this.userList = this.userList.sort((n1,n2) => {
+        this.userList = this.userList.sort((n1, n2) => {
           if (n1.id > n2.id) {
-              return 1;
-          }      
+            return 1;
+          }
           if (n1.id < n2.id) {
-              return -1;
-          }      
+            return -1;
+          }
           return 0;
-      });
+        });
       },
       error: (error: Error) => console.error(error)
     };
@@ -67,6 +73,5 @@ export class UserlistComponent implements OnInit {
     this.uServ.getAllUsers().subscribe(myObserver);
 
   }
-
 
 }

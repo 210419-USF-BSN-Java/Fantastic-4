@@ -14,8 +14,6 @@ export class LoginComponent implements OnInit {
   message: string = '';
   errorMsg?: string;
   public user?: User;
-  // @Output() gotUserEvent = new EventEmitter<User>();
-
 
   constructor(private userCredValidation: InputValidationService, private auth: AuthService, private router: Router) { }
 
@@ -35,7 +33,7 @@ export class LoginComponent implements OnInit {
         if(this.auth.parseToken()[1] ==1){
           this.router.navigate(['new-game']);
         }else{
-          this.router.navigate(['new-category']);
+          this.router.navigate(['select-category']);
         }
       },
       error: (error: Error) => {
