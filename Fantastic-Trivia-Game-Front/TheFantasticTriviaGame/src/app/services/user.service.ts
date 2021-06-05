@@ -9,7 +9,8 @@ import { User } from '../models/user';
 })
 export class UserService {
   private url: string = 'http://18.117.105.101:8090/';
-
+ //private url:string  = 'http://localhost:8090/';
+  
   constructor(private http: HttpClient) { }
 
   addUser(username: string, password: string, email: string): Observable<any> {
@@ -19,18 +20,20 @@ export class UserService {
     formData.append("password", password);
     formData.append("email", email);
      console.log( formData);
+     
 
     return this.http.post(this.url + 'user/signup', formData,  {responseType: 'text'}).pipe(
       catchError(this.errorHandler));
   }
-  editUser(username: string, password: string, email: string): Observable<any> {
+  editUser(id:number ,username: string, password: string, email: string): Observable<any> {
 
     let formData = new FormData();
+    formData.append("userId",''+id);
     formData.append("username", username);
     formData.append("password", password);
     formData.append("email", email);
 
-    return this.http.put(this.url + 'edit/', formData).pipe(
+    return this.http.post(this.url + 'user/update', formData, {responseType: 'text'}).pipe(
       catchError(this.errorHandler));
   }
   getUser(id: number): Observable<any> {

@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { LeaderboardUComponent } from './components/leaderboard-u/leaderboard-u.component';
 import { FormsModule } from '@angular/forms';
 import { QuestionsComponent } from './components/questions/questions.component';
+import { ProfileUComponent } from './components/profile-u/profile-u.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { QuestionsComponent } from './components/questions/questions.component';
     NewCategoryComponent,
     UserlistComponent,
     LeaderboardUComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    ProfileUComponent
   ],
   imports: [
     BrowserModule,

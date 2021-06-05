@@ -15,15 +15,17 @@ export class AuthService {
   login(username: string, password: string): Observable<any> {
     let url: string = 'http://18.117.105.101:8090/';
 
+    //url = 'http://localhost:8090/';
+
     let formData = new FormData();
     formData.append("username", username);
     formData.append("password", password)
 
     console.log(formData);
 
-    //localStorage.setItem('token', "2:1");
+    //localStorage.setItem('token', "2:2");
     // console.log(localStorage.getItem('token'));
-    return this.http.post<User>(url + 'user/login', formData).pipe(
+    return this.http.post<any>(url + 'user/login', formData).pipe(
       tap(x => {localStorage.clear();
         this.token = x.id + ":" + x.roleId;
         localStorage.setItem('token', this.token);

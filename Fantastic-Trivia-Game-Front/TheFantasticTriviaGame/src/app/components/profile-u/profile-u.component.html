@@ -9,7 +9,7 @@
         <div class='col d-flex justify-content-center'>
             <div class="card shadow-sm " style="width:60rem;">
                 <div class="card-header">
-                    <h4 class="card-title">Your information</h4>
+                    <h4 class="card-title">User's information</h4>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -27,31 +27,8 @@
                             </div>
                         </div>
 
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                <input type='password' placeholder='Password' class="form-control " [(ngModel)] ='user.password'
-                                [readonly]='!edit'>
-                            </div>
-                        </div>
-                        <div *ngIf = 'edit' class="col-6">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">Password</span>
-                                <input  type='password' placeholder='Repeat password' class="form-control" [(ngModel)] ='password2'>
-                            </div>
-                        </div>
-                    </div>
-                    <div *ngIf='!edit'class=" gap-2 d-flex justify-content-end">
-                        <button class='btn btn-primary' type='submit' (click)='editUser()'>Edit </button>
-                    </div>
-                    <div *ngIf='edit' class=" gap-2 d-flex justify-content-end">
-                        <span class = "pr-5">{{message}}</span>
-                        <button  class='btn btn-outline-secondary' type='submit' (click)='dontEdit()'>Cancel</button>
-                        <button class='btn btn-primary' (click)="submitChanges()">Submit changes </button>
-                    </div>
+                    </div>                   
+                   
                 </div>
             </div>
         </div>
@@ -64,7 +41,7 @@
         <div class='col d-flex justify-content-center'>
             <div class="card shadow-sm " style="width:60rem;">
                 <div class="card-header">
-                    <h4 class="card-title">Your stats</h4>
+                    <h4 class="card-title">User's stats</h4>
                 </div>
                 <div class="card-body">
                     <div class="row">

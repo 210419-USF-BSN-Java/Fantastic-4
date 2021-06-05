@@ -27,7 +27,7 @@
                         <td>Overall Rank1</td>
                         <td>Number of Questions1 </td>
                         <td>{{user.roleId}}</td>
-                        <td><i class="fas fa-info-circle"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <td><i class="fas fa-info-circle" (click)='viewUser(user.id)'></i>&nbsp;&nbsp;&nbsp;&nbsp;
                             <span *ngIf='user.statusId == 2 && currentUser != user.id'>
                                 <i class="far fa-check-circle" (click)='permitUser(user.id)'></i>&nbsp;&nbsp;
                             </span>
@@ -35,7 +35,7 @@
                                 <i class="fas fa-ban" (click)='banUser(user.id)'></i>&nbsp;&nbsp;
                             </span>
                             <span *ngIf='currentUser != user.id'>
-                                <i class="far fa-trash-alt"(click)=' deleteUser(user.id)'></i>
+                                <i class="far fa-trash-alt" (click)=' deleteUser(user.id)'></i>
                             </span>
                         </td>
                     </tr>
@@ -44,4 +44,14 @@
 
         </div>
     </div>
+</div>
+<div *ngIf='selectedUserId' class='modal'>
+    <div class='container'>
+        <div class='row'>
+            <div class='col mt-5 d-flex justify-content-end'>
+                <span (click)='closeModal()'> <i class="far fa-2x fa-times-circle"></i> </span>
+            </div>
+        </div>
+    </div>
+    <app-profile-u [userId]='selectedUserId'></app-profile-u>
 </div>

@@ -14,8 +14,6 @@ export class LoginComponent implements OnInit {
   message: string = '';
   errorMsg?: string;
   public user?: User;
-  // @Output() gotUserEvent = new EventEmitter<User>();
-
 
   constructor(private userCredValidation: InputValidationService, private auth: AuthService, private router: Router) { }
 
