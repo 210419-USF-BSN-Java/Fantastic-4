@@ -47,6 +47,13 @@ public class QuestionSetController {
 		List<QuestionSet> retrieved = qServ.getQuestionSetByCategory(categoryId);
 		return new ResponseEntity<List<QuestionSet>>(retrieved, HttpStatus.OK);
 	}
+	
+	@GetMapping(value = "/difficulty/{difficultyId}")
+	public ResponseEntity<List<QuestionSet>> getQuestionSetsByDifficultyId(@PathVariable("difficultyId") Integer difficultyId) {
+
+		List<QuestionSet> retrieved = qServ.getQuestionSetByDifficulty(difficultyId);
+		return new ResponseEntity<List<QuestionSet>>(retrieved, HttpStatus.OK);
+	}
 
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<QuestionPool> GetQuestionsQuestionSetById(@PathVariable("id") Integer id) {

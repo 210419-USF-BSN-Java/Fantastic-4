@@ -107,6 +107,17 @@ public class QuestionService {
 			}
 		}
 		
+		public List<QuestionSet> getQuestionSetByDifficulty(int difficultyId){
+			
+			try {
+				return qRepo.findQuestionSetByDifficultyId(difficultyId);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			}
+			
+		}
 		
 
 }

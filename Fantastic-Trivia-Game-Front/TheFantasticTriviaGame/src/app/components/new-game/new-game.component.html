@@ -33,106 +33,16 @@
     <div class='row align-items-center  '>
         <div class='col d-flex flex-wrap  justify-content-start' style="height:28em;">
 
-            <div *ngFor = 'let question of questions' class='card shadow m-3' style=" min-width:15rem; width:15rem; height:11rem;">
+            <div *ngFor = 'let question of questions; let k = index' class='card shadow m-3' style=" min-width:15rem; width:15rem; height:11rem;">
                 <div class="card-header">
-                    <h6 style ="display:inline">{{difficultyNames[(question.id-1)]}}</h6>
+                    <h6 style ="display:inline">{{difficultyNames[k]}}</h6>
                 </div>
                 <div class="card-body">
                     <a href="#" class="stretched-link text-decoration-none">
-                        <p>{{categoryNames[((question.id-1))]}}</p>
+                        <p>{{categoryNames[k]}}</p>
                         <span>Number of questions: {{question.numQuestions}}</span>
                     </a>
                 </div>
             </div>
-
-
-            <!--
-            <div class='card shadow m-3' style=" min-width:15rem; width:15rem; height:11rem;">
-                <div class="card-header">
-                    <h6>Easy</h6>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="stretched-link text-decoration-none">
-                        <p>{{nameGame}}</p>
-                        <span>Number of questions: {{nameGame}}</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class='card shadow m-3' style=" min-width:15rem; width:15rem; height:11rem;">
-                <div class="card-header">
-                    <h6>Easy</h6>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="stretched-link text-decoration-none">
-                        <p>{{nameGame}}</p>
-                        <span>Number of questions: {{nameGame}}</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class='card shadow m-3' style=" min-width:15rem; width:15rem; height:11rem;">
-                <div class="card-header">
-                    <h6>Easy</h6>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="stretched-link text-decoration-none">
-                        <p>{{nameGame}}</p>
-                        <span>Number of questions: {{nameGame}}</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class='card shadow m-3' style=" min-width:15rem; width:15rem; height:11rem;">
-                <div class="card-header">
-                    <h6>Easy</h6>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="stretched-link text-decoration-none">
-                        <p>{{nameGame}}</p>
-                        <span>Number of questions: {{nameGame}}</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class='card shadow m-3' style=" min-width:15rem; width:15rem; height:11rem;">
-                <div class="card-header">
-                    <h6>Easy</h6>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="stretched-link text-decoration-none">
-                        <p>{{nameGame}}</p>
-                        <span>Number of questions: {{nameGame}}</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class='card shadow m-3' style=" min-width:15rem; width:15rem; height:11rem;">
-                <div class="card-header">
-                    <h6>Easy</h6>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="stretched-link text-decoration-none">
-                        <p>{{nameGame}}</p>
-                        <span>Number of questions: {{nameGame}}</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class='card shadow m-3' style=" min-width:15rem; width:15rem; height:11rem;">
-                <div class="card-header">
-                    <h6>Easy</h6>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="stretched-link text-decoration-none">
-                        <p>{{nameGame}}</p>
-                        <span>Number of questions: {{nameGame}}</span>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    -->
     <!--end of container-->
 </div>

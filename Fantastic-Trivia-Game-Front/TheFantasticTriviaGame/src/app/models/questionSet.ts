@@ -7,6 +7,7 @@ export interface QuestionSet {
 }
 
 export enum category{
+
     General_Knowlege,
     Books,
     Film,

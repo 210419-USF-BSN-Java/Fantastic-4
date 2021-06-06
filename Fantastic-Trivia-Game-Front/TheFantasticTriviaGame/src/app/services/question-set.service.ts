@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -16,11 +16,22 @@ export class QuestionSetService {
     return this.http.get(this.url + 'question-set').pipe(
       catchError(this.errorHandler));
   }
-  /* to be implemented---
-  getAllQuestionSetsByCatId():Observable<any>{
-    return this.http.get(this.url+'user').pipe(
+
+  getAllQuestionSetsByCatId(catId: number):Observable<any>{
+
+
+    return this.http.get(this.url + 'question-set/category/'+ catId).pipe(
       catchError(this.errorHandler));
   }
+
+  getAllQuestionSetsByDiffId(diffId: number):Observable<any>{
+
+
+    return this.http.get(this.url + 'question-set/difficulty/'+ diffId).pipe(
+      catchError(this.errorHandler));
+  }
+  /* to be implemented---
+
   getQuestionsQuestionSetById():Observable<any>{
     return this.http.get(this.url+'user').pipe(
       catchError(this.errorHandler));
@@ -31,7 +42,7 @@ export class QuestionSetService {
     formData.append("password", password);
     formData.append("email", email);
      console.log( formData);
-     
+
 
     return this.http.post(this.url + 'user/signup', formData,  {responseType: 'text'}).pipe(
       catchError(this.errorHandler));
@@ -44,7 +55,7 @@ export class QuestionSetService {
     formData.append("numQuestions", numQuestions);
     formData.append("difficultyId", difficultyId);
      console.log( formData);
-     
+
 
     return this.http.post(this.url + 'question-set/new-game', formData).pipe(
       catchError(this.errorHandler));
@@ -56,7 +67,7 @@ export class QuestionSetService {
   }
 
 
-  
+
 
   errorHandler(error: HttpErrorResponse) {
     return throwError(error);
