@@ -8,7 +8,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.revature.models.QuestionPool;
 import com.revature.models.QuestionSet;
-import com.revature.models.QuestionSetDifficulty;
 import com.revature.repository.QuestionSetRepository;
 
 @Service
@@ -21,8 +20,8 @@ public class QuestionService {
 	}
 	
 	@Autowired
-	public QuestionService(QuestionSetRepository qRepo) {
-		this.qRepo = qRepo;
+	public QuestionService(QuestionSetRepository repo) {
+		this.qRepo = repo;
 	}
 	
 	// Manager edit a question set returns edited set
@@ -72,19 +71,25 @@ public class QuestionService {
 		}
 		
 	// This is the service to get questions from API returns the question pool results.
-		public QuestionPool getQuestionsFromSet(QuestionSet qSet) {
+		public QuestionPool getQuestionsFromSet(int setId) {
 			
+			QuestionSet qSet = qRepo.getById(setId);
 			int categoryId = qSet.getCategoryId();
 			int difficultyId = qSet.getDifficultyId();
 			int numQuestions = qSet.getNumQuestions();
 			
-			QuestionSetDifficulty qSetDiff = qRepo.findQuestionSetDifficultyById(difficultyId);
-			
-			String setDifficulty = qSetDiff.getDifficulty();  // make sure difficulty is lower case in DB
+			String setDiff = null;
+			if(difficultyId == 1){
+				setDiff = "easy";
+			}else if(difficultyId == 2) {
+				setDiff = "medium";
+			}else if(difficultyId == 3) {
+				setDiff = "hard";
+			}
 			
 			RestTemplate rt = new RestTemplate();
 			
-			QuestionPool response = rt.getForObject("https://opentdb.com/api.php?amount="+numQuestions+"&category="+categoryId+"&difficulty="+setDifficulty+"&type=multiple", QuestionPool.class);
+			QuestionPool response = rt.getForObject("https://opentdb.com/api.php?amount="+numQuestions+"&category="+categoryId+"&difficulty="+setDiff+"&type=multiple", QuestionPool.class);
 			
 			return response;
 		}
