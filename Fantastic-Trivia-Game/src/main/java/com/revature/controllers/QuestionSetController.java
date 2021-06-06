@@ -57,9 +57,10 @@ public class QuestionSetController {
 
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<QuestionPool> GetQuestionsQuestionSetById(@PathVariable("id") Integer id) {
-		QuestionSet setInfo = qServ.getQuestionSetById(id);
-		
-		QuestionPool retrieved = qServ.getQuestionsFromSet(setInfo);
+
+
+		QuestionPool retrieved = qServ.getQuestionsFromSet(id);
+
 		return new ResponseEntity<QuestionPool>(retrieved, HttpStatus.OK);
 	}
 
