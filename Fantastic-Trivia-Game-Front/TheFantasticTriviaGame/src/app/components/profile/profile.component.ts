@@ -13,25 +13,32 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  //display  
-  totalScore: string = '1';
+  //for html template 
+  totalScore: string = '';
+  topCategory: string = '';
+  overallRank: string = '';
+  topScore: string = "";
 
   recentScore: string = '';
   recentCategory: string = '';
-  overallRank: string = '';
-
-
 
   message: string = "";
 
   //for component
   edit: boolean = false;
+  
+  //profile information
   userId?: number;
   user: User;
-  oldUserInfo: User;
-  scoreObj: Score[] = [];
-
+  oldUserInfo: User;  
   password2: string = '';
+
+  scoreObj: Score[] = [];
+  
+  //allows for user to see score for games played
+  gamesList:string[]=[];  
+  scoreList:number[]=[]
+  selectedGame:number=0;
 
   constructor(private userServ: UserService, private auth: AuthService, private userValidation: InputValidationService, private lbServ: LeaderboardService) {
     this.user = { id: 0, username: "", password: "", email: '' };
@@ -53,14 +60,20 @@ export class ProfileComponent implements OnInit {
       next: (response: Score[]) => {
         this.scoreObj = response;
 
-        console.log(category[0]);
-        this.recentScore = "" + this.scoreObj[this.scoreObj.length - 1].score;
-        this.overallRank = "" + this.scoreObj[this.scoreObj.length - 1].rank;
-        this.recentCategory = "" + category[this.scoreObj[this.scoreObj.length - 1].categoryId - 9];
-        console.log(this.getOverallRank());
-        console.log(this.getTopScore());
-        console.log(this.getTopCategory());
-        console.log(this.getTotalScore());
+        if (this.scoreObj.length > 0) {
+          this.recentScore = "" + this.scoreObj[this.scoreObj.length - 1].score;          
+          this.recentCategory = "" + category[this.scoreObj[this.scoreObj.length - 1].categoryId - 9];
+
+          this.totalScore = "" + this.getTotalScore();
+          this.overallRank = "" + this.getOverallRank();
+          this.topCategory = this.getTopCategory();
+          this.totalScore = "" + this.getTotalScore();
+          this.topScore = "" + this.getTopScore();
+
+          //for game column
+          this. populateGamesPlayedList();
+
+        }
 
       },
       error: (error: Error) => console.error(error),
@@ -70,19 +83,47 @@ export class ProfileComponent implements OnInit {
 
 
   }
-
-  getOverallRank():number{
-    return 1;
+  private populateGamesPlayedList(){
+    for (let scoreItem of this.scoreObj) {
+      this.gamesList.push(scoreItem.setId+" - "+category[scoreItem.categoryId-9]);
+      this.scoreList.push(scoreItem.score);
+    }
   }
 
-  getTopScore(): number {
-    return 1;
+  private getOverallRank(): number {
+    let rankSum: number = 0;
+    for (let scoreItem of this.scoreObj) {
+      rankSum = scoreItem.rank + rankSum;
+    }
+    return Math.floor(rankSum / this.scoreObj.length);
   }
-  getTopCategory(): number {
-    return 1;
+
+  private getTopScore(): number {
+    let topScore: number = 0;
+    for (let scoreItem of this.scoreObj) {
+      if (scoreItem.score > topScore) {
+        topScore = scoreItem.score;
+      }
+    }
+    return topScore;
   }
-  getTotalScore(): number {
-    return 1;
+  private getTopCategory(): string {
+    let topIndex: number = 0;
+    let topScore: number = 0;
+    for (let i = 0; i < this.scoreObj.length; i++) {
+      if (this.scoreObj[i].score > topScore) {
+        topScore = this.scoreObj[i].score;
+        topIndex = i;
+      }
+    }
+    return category[(this.scoreObj[topIndex].categoryId - 9)];
+  }
+  private getTotalScore(): number {
+    let totalScore: number = 0;
+    for (let scoreItem of this.scoreObj) {
+      totalScore = totalScore + scoreItem.score;
+    }
+    return totalScore;
   }
   editUser(): void {
     this.edit = true;

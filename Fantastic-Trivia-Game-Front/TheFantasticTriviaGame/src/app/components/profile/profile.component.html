@@ -64,33 +64,39 @@
 
     <div class='row align-items-center'>
         <div class='col d-flex justify-content-center'>
-            <div class="card shadow-sm " style="width:60rem;">
+            <div class="card shadow-sm " style="width:60rem;" *ngIf="this.scoreObj.length > 0">
                 <div class="card-header">
                     <h4 class="card-title">Your stats</h4>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-4 ">
-                            <p class="">Total score: Unavailable</p>
-                            <p class="">Top category: Unavailable</p>
+                            <p class="">Total score: {{totalScore}}</p>
+                            <p class="">Top category: {{topCategory}}</p>
                             <p class="">Recent category: {{recentCategory}}</p>
                         </div>
                         <div class="col-4">
                             <p class="">Overall rank: {{overallRank}}</p>
-                            <p class="">Top score: Unavailable</p>
+                            <p class="">Top score: {{topScore}}</p>
                             <p class="">Recent score: {{recentScore}}</p>
                         </div>
 
                         <div class="col-4">
-                            <select class='form-select'>
-                                <option value='1'>Category</option>
+                            <select class='form-select' [(ngModel)] ='selectedGame'>
+                                <option *ngFor= "let game of gamesList; let i= index" value='{{i}}'>{{game}}</option>
                             </select>
                             <br>
-                            <p class="">Category score: Unavailable</p>
+                            <p class="">Game score: {{scoreList[selectedGame]}}</p>
                         </div>
                     </div>
                 </div>
 
+            </div>
+
+
+            <!--no trivia informartion-->
+            <div *ngIf="this.scoreObj.length == 0">
+                <p>No games played yet. You need to answer some questions.</p>
             </div>
 
         </div>
