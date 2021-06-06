@@ -44,6 +44,10 @@ export class NewGameComponent implements OnInit {
     this.qSetServ.getAllQuestionSets().subscribe(myObserver);
   }
 
+  searchByCatDiff(){
+
+  }
+
 
 
 }
