@@ -16,14 +16,15 @@
                         <div class="col-6">
                             <div class=" input-group form-group mb-3">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                <input name='username' type='text' placeholder='Username' class="form-control" [(ngModel)] ='user.username'
-                                    [readonly]='!edit'>
+                                <input name='username' type='text' placeholder='Username' class="form-control"
+                                    [(ngModel)]='user.username' [readonly]='!edit'>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="col input-group form-group mb-3">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                <input name='email' type='text' placeholder='Email' class="form-control " [(ngModel)] ='user.email'  [readonly]='!edit'>
+                                <input name='email' type='text' placeholder='Email' class="form-control "
+                                    [(ngModel)]='user.email' [readonly]='!edit'>
                             </div>
                         </div>
 
@@ -33,23 +34,24 @@
                         <div class="col-6">
                             <div class="input-group mb-3">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                <input type='password' placeholder='Password' class="form-control " [(ngModel)] ='user.password'
-                                [readonly]='!edit'>
+                                <input type='password' placeholder='Password' class="form-control "
+                                    [(ngModel)]='user.password' [readonly]='!edit'>
                             </div>
                         </div>
-                        <div *ngIf = 'edit' class="col-6">
+                        <div *ngIf='edit' class="col-6">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Password</span>
-                                <input  type='password' placeholder='Repeat password' class="form-control" [(ngModel)] ='password2'>
+                                <input type='password' placeholder='Repeat password' class="form-control"
+                                    [(ngModel)]='password2'>
                             </div>
                         </div>
                     </div>
-                    <div *ngIf='!edit'class=" gap-2 d-flex justify-content-end">
+                    <div *ngIf='!edit' class=" gap-2 d-flex justify-content-end">
                         <button class='btn btn-primary' type='submit' (click)='editUser()'>Edit </button>
                     </div>
                     <div *ngIf='edit' class=" gap-2 d-flex justify-content-end">
-                        <span class = "pr-5">{{message}}</span>
-                        <button  class='btn btn-outline-secondary' type='submit' (click)='dontEdit()'>Cancel</button>
+                        <span class="pr-5">{{message}}</span>
+                        <button class='btn btn-outline-secondary' type='submit' (click)='dontEdit()'>Cancel</button>
                         <button class='btn btn-primary' (click)="submitChanges()">Submit changes </button>
                     </div>
                 </div>
@@ -69,22 +71,22 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-4 ">
-                            <p class="">Total score: {{totalScore}}</p>
-                            <p class="">Top category: {{totalScore}}</p>
-                            <p class="">Recent category: {{totalScore}}</p>
+                            <p class="">Total score: Unavailable</p>
+                            <p class="">Top category: Unavailable</p>
+                            <p class="">Recent category: {{recentCategory}}</p>
                         </div>
                         <div class="col-4">
-                            <p class="">Overall rank: {{totalScore}}</p>
-                            <p class="">Top score: {{totalScore}}</p>
-                            <p class="">Recent score: {{totalScore}}</p>
+                            <p class="">Overall rank: {{overallRank}}</p>
+                            <p class="">Top score: Unavailable</p>
+                            <p class="">Recent score: {{recentScore}}</p>
                         </div>
 
                         <div class="col-4">
-                            <select class = 'form-select'>
-                                <option value = '1'>First option</option>
+                            <select class='form-select'>
+                                <option value='1'>Category</option>
                             </select>
                             <br>
-                            <p class="">Category score: {{totalScore}}</p>
+                            <p class="">Category score: Unavailable</p>
                         </div>
                     </div>
                 </div>

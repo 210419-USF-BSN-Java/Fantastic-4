@@ -1,4 +1,4 @@
-<!--change directive -->
+
 <!--for user-->
 <div *ngIf="!(url == '/login'||url =='/signup') &&token && token[1] == 1">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -11,7 +11,7 @@
       <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/new-game">New Game </a>
         <a class="nav-item nav-link" routerLink="/profile">View Profile</a>
-        <a class="nav-item nav-link" routerLink="/leaderboard">View Leaderboard</a>
+        <a class="nav-item nav-link disabled" routerLink="/leaderboard" >View Leaderboard</a>
         <a class="nav-item nav-link" id ="logout" (click)="logout()">Logout</a>
       </div>
     </div>
@@ -29,21 +29,11 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/select-category" >Manage questions</a>
-        <a class="nav-item nav-link" routerLink="/manage-leaderboard">Manage Leaderboard</a>
+        <a class="nav-item nav-link" routerLink="/leaderboard" >Manage Leaderboard</a>
         <a class="nav-item nav-link" routerLink="/users">Manage Users</a>        
         <a class="nav-item nav-link" id ="logout" (click)="logout()">Logout</a>
       </div>
     </div>
   </nav>
 </div>
-{{url}}
 <router-outlet ></router-outlet>
-<!--
-<p>-------testing data below--------------------------------------------</p>
-
-<app-login></app-login>
-<app-signup></app-signup>
-<app-profile></app-profile>
-<app-userlist></app-userlist>
-<app-new-category></app-new-category>
-<app-new-game></app-new-game>-->
