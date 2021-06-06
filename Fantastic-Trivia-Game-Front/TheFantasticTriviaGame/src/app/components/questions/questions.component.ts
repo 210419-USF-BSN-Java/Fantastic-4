@@ -1,6 +1,9 @@
 import { QuestionPoolService } from './../../services/question-pool.service';
 import { QuestionPool } from './../../models/questionPool';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { QuestionSet, category, difficulty } from 'src/app/models/questionSet';
+import { QuestionSetService } from 'src/app/services/question-set.service';
 
 
 
@@ -10,17 +13,51 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./questions.component.css']
 })
 export class QuestionsComponent implements OnInit {
-  // question:string='';
-  // difficulty:string ='';
-  // topic:string='';
+   
+  questions: QuestionSet[]=[]
+  question:string='';
+   difficulty:string ='';
+   topic:string='';
 
 
   questionpool: QuestionPool[] = [];
 
-  constructor(private qpServ:QuestionPoolService) { }
+  constructor(private qpServ:QuestionPoolService, private qSetServ:QuestionSetService, private router:ActivatedRoute) { }
 
   ngOnInit(): void {
-    let id:number = 1;
+    
+    let questionSetIdStr = this.router.snapshot.paramMap.get('id');
+
+    let questionSetId:number = 0;
+        
+    if (questionSetIdStr!=null){
+      questionSetId =parseInt(questionSetIdStr);
+    }
+    //get the questionset information
+    const myObserver1 = {
+      next: (response: any) => {this.questions= response;
+      console.log(response);      
+       
+     for (let i = 0; i < this.questions.length; i++) {
+       if(questionSetId == this.questions[i].id ){
+        this.question = category[(this.questions[i].categoryId - 9)];
+        this.difficulty =  difficulty[(this.questions[i].difficultyId - 1)];
+       }
+      }    
+    },
+      error: (error: Error) => console.log(error)
+    };
+    this.qSetServ.getAllQuestionSets().subscribe(myObserver1);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     const myObserver = {
       next: (response: any) => {
         this.questionpool= response;
@@ -29,7 +66,7 @@ export class QuestionsComponent implements OnInit {
     },
     error: (error: Error) => console.log(error)
   };
-  this.qpServ.getQuestionPool(id).subscribe(myObserver);
+  this.qpServ.getQuestionPool(questionSetId).subscribe(myObserver);
 
 
 

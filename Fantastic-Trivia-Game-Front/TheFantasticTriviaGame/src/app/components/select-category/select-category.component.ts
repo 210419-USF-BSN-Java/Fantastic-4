@@ -8,7 +8,7 @@ import { QuestionSetService } from 'src/app/services/question-set.service';
   styleUrls: ['./select-category.component.css']
 })
 export class SelectCategoryComponent implements OnInit {
-  // nameGame: string = "helooe";
+  
   id: number = 1;
 
 
@@ -40,23 +40,11 @@ export class SelectCategoryComponent implements OnInit {
       for (let j = 0; j < this.questions.length; j++) {
         this.difficultyNames[j] = difficulty[(this.questions[j].difficultyId - 1)];
         console.log(this.difficultyNames[j]);
-      }
-    
-    
-    
-    
-    
+      }    
     },
       error: (error: Error) => console.log(error)
     };
     this.qSetServ.getAllQuestionSets().subscribe(myObserver);
-    
-    
-    
-    
-
-    
-
 
     //console.log(category[1]);
   }
