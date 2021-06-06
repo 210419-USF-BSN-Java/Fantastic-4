@@ -35,12 +35,7 @@ export class NewGameComponent implements OnInit {
         console.log(this.questions[i]);
       }
 
-      // this.id = new Array<number>(this.questions.length);
-      // for (let i = 0; i < this.questions.length; i++) {
-      //   this.id[i] = this.questions[i].id;
-      //   console.log(this.id[i]);
 
-      // }
 
       this.difficultyNames = new Array<string>(this.questions.length);
       for (let j = 0; j < this.questions.length; j++) {

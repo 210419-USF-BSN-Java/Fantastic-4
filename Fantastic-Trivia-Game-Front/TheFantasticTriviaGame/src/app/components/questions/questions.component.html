@@ -27,7 +27,9 @@
     <div class='row align-items-start mb-4'>
 
         <div class='col '>
-            <p class='w-100 bg-light p-2'>Question 1: {{question}}</p>
+            <div *ngFor = 'let pool of poolQuestion; let k = index'>
+            <p class='w-100 bg-light p-2'>Question 1: {{poolQuestion[k]}}</p>
+          </div>
 
             <div class="form-check">
                 <input type="radio" id="male" name="gender" value="male">

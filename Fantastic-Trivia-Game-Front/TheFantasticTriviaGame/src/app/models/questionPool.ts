@@ -1,17 +1,16 @@
 
+
 export interface QuestionPool{
-  categoryId: number;
+  category: string;
   type: string;
-  difficultyId: number;
-  question: string;
-  correct_answerId: number;
+  difficulty: string;
+  triviaQuestion: string;
   right_answer: string;
-  incorrect_answers: number[];
   wrong_answers: string[];
 
 }
 
-export enum category{
+export enum poolCategory{
     General_Knowlege,
     Books,
     Film,
@@ -25,7 +24,7 @@ export enum category{
     Mathematics
 }
 
-export enum difficulty{
+export enum poolDifficulty{
   Easy,
   Medium,
   Hard

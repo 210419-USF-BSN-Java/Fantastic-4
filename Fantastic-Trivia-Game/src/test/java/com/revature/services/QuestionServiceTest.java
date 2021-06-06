@@ -106,9 +106,9 @@ class QuestionServiceTest {
 		
 		Mockito.when(rt.getForObject("https://opentdb.com/api.php?amount="+numQuestions+"&category="+categoryId+"&difficulty="+setDifficulty+"&type=multiple", QuestionPool.class)).thenReturn(qp);
 		
-		Mockito.when(qServ.getQuestionsFromSet(qs)).thenReturn(qp);
+		Mockito.when(qServ.getQuestionsFromSet(id)).thenReturn(qp);
 		
-		assertNotNull(qServ.getQuestionsFromSet(qs));
+		assertNotNull(qServ.getQuestionsFromSet(id));
 		
 		//roadblock
 	}
