@@ -36,19 +36,19 @@ export class QuestionSetService {
     return this.http.post(this.url + 'user/signup', formData,  {responseType: 'text'}).pipe(
       catchError(this.errorHandler));
 
-  }
-   addGameusername: string, password: string, email: string): Observable<any> {
+  }*/
+   addGame(catId: string, difficultyId: string, numQuestions: string): Observable<any> {
 
     let formData = new FormData();
-    formData.append("username", username);
-    formData.append("password", password);
-    formData.append("email", email);
+    formData.append("categoryId", catId);
+    formData.append("numQuestions", numQuestions);
+    formData.append("difficultyId", difficultyId);
      console.log( formData);
      
 
-    return this.http.post(this.url + 'user/signup', formData,  {responseType: 'text'}).pipe(
+    return this.http.post(this.url + 'question-set/new-game', formData).pipe(
       catchError(this.errorHandler));
-  }*/
+  }
 
   deleteQuestionSet(id: number): Observable<any> {
     return this.http.delete(this.url + 'question-set/delete/' + id,{responseType: 'text'}).pipe(
