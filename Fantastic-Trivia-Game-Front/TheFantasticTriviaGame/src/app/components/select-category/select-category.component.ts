@@ -27,17 +27,13 @@ export class SelectCategoryComponent implements OnInit {
     
     const myObserver = {
       next: (response: any) => {this.questions= response;
-      console.log(response),
+      console.log(response);
     
       this.categoryNames = new Array<string>(this.questions.length);
       for (let i = 0; i < this.questions.length; i++) {
         this.categoryNames[i] = category[(this.questions[i].categoryId - 9)];
         console.log(this.categoryNames[i]);
-        console.log(this.questions[i]);
-  
-  
-  
-       
+        console.log(this.questions[i]);         
       }
   
       this.difficultyNames = new Array<string>(this.questions.length);
@@ -68,7 +64,15 @@ export class SelectCategoryComponent implements OnInit {
 
 
   deleteCategory(id: number): void {
-    console.log("question set deleted: " + id);
+    
+    const myObserver = {
+      next: (response: any) => {
+      console.log(response);
+      this.ngOnInit();    
+    },
+      error: (error: Error) => console.log(error)
+    };
+    this.qSetServ.deleteQuestionSet(id).subscribe(myObserver);
 
   }
 
