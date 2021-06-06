@@ -48,15 +48,15 @@ export class QuestionSetService {
 
     return this.http.post(this.url + 'user/signup', formData,  {responseType: 'text'}).pipe(
       catchError(this.errorHandler));
-  }
+  }*/
 
   deleteQuestionSet(id: number): Observable<any> {
-    return this.http.delete(this.url + 'user/delete/' + id,{responseType: 'text'}).pipe(
+    return this.http.delete(this.url + 'question-set/delete/' + id,{responseType: 'text'}).pipe(
       catchError(this.errorHandler));
   }
 
 
-  */
+  
 
   errorHandler(error: HttpErrorResponse) {
     return throwError(error);
