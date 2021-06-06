@@ -17,13 +17,13 @@
                             <div class=" input-group form-group mb-3">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 <input name='username' type='text' placeholder='Username' class="form-control" [(ngModel)] ='user.username'
-                                    [readonly]='!edit'>
+                                    readonly>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="col input-group form-group mb-3">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                <input name='email' type='text' placeholder='Email' class="form-control " [(ngModel)] ='user.email'  [readonly]='!edit'>
+                                <input name='email' type='text' placeholder='Email' class="form-control " [(ngModel)] ='user.email'  readonly>
                             </div>
                         </div>
 
@@ -39,7 +39,7 @@
 
     <div class='row align-items-center'>
         <div class='col d-flex justify-content-center'>
-            <div class="card shadow-sm " style="width:60rem;">
+            <div class="card shadow-sm " style="width:60rem;" *ngIf="this.scoreObj.length > 0">
                 <div class="card-header">
                     <h4 class="card-title">User's stats</h4>
                 </div>
@@ -47,25 +47,31 @@
                     <div class="row">
                         <div class="col-4 ">
                             <p class="">Total score: {{totalScore}}</p>
-                            <p class="">Top category: {{totalScore}}</p>
-                            <p class="">Recent category: {{totalScore}}</p>
+                            <p class="">Top category: {{topCategory}}</p>
+                            <p class="">Recent category: {{recentCategory}}</p>
                         </div>
                         <div class="col-4">
-                            <p class="">Overall rank: {{totalScore}}</p>
-                            <p class="">Top score: {{totalScore}}</p>
-                            <p class="">Recent score: {{totalScore}}</p>
+                            <p class="">Overall rank: {{overallRank}}</p>
+                            <p class="">Top score: {{topScore}}</p>
+                            <p class="">Recent score: {{recentScore}}</p>
                         </div>
 
                         <div class="col-4">
-                            <select class = 'form-select'>
-                                <option value = '1'>First option</option>
+                            <select class='form-select' [(ngModel)] ='selectedGame'>
+                                <option *ngFor= "let game of gamesList; let i= index" value='{{i}}'>{{game}}</option>
                             </select>
                             <br>
-                            <p class="">Category score: {{totalScore}}</p>
+                            <p class="">Game score: {{scoreList[selectedGame]}}</p>
                         </div>
                     </div>
                 </div>
 
+            </div>
+
+
+            <!--no trivia informartion-->
+            <div *ngIf="this.scoreObj.length == 0">
+                <p>No games played yet.</p>
             </div>
 
         </div>
