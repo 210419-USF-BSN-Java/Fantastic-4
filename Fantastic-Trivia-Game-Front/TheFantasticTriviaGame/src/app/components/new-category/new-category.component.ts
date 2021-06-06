@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { QuestionSet, category, difficulty } from 'src/app/models/questionSet';
+import { category } from 'src/app/models/questionSet';
+import { QuestionSetService } from 'src/app/services/question-set.service';
 
 @Component({
   selector: 'app-new-category',
@@ -11,7 +12,7 @@ export class NewCategoryComponent implements OnInit {
   message: string = "";
   categoryArray: Categories[] = new Array(0);
 
-  constructor() { }
+  constructor(private qsServ:QuestionSetService) { }
 
   ngOnInit(): void {
     let categoryId = 9;
@@ -37,7 +38,18 @@ export class NewCategoryComponent implements OnInit {
     } else if (parseInt(numQuesStr) < 5 || parseInt(numQuesStr) > 25|| Number.isNaN(parseInt(numQuesStr))){
       this.message = "Please enter valid number of questions";
     }else{
-      this.message =parseInt(numQuesStr)+"it works";
+
+
+      const myObserver = {
+        next: (response: any) => {
+        //console.log(response) ;
+        this.message = "Category added successfully";}   
+     ,
+        error: (error: Error) => console.log(error)
+      };
+      
+      this.qsServ.addGame(categoryIdStr, difficultyIdStr, numQuesStr).subscribe( myObserver);
+      
     }
   }
 
