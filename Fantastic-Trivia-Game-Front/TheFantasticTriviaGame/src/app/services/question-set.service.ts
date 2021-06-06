@@ -30,12 +30,13 @@ export class QuestionSetService {
     return this.http.get(this.url + 'question-set/difficulty/'+ diffId).pipe(
       catchError(this.errorHandler));
   }
-  /* to be implemented---
-
   getQuestionsQuestionSetById():Observable<any>{
     return this.http.get(this.url+'user').pipe(
       catchError(this.errorHandler));
   }
+  /* to be implemented---
+
+
   setScore():Observable<any>{
      let formData = new FormData();
     formData.append("username", username);

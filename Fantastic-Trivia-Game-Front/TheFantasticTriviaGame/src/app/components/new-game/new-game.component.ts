@@ -15,6 +15,8 @@ export class NewGameComponent implements OnInit {
 
     questions: QuestionSet[] = [];
 
+
+    id:number[] = []
     categoryNames:string[]=[];
     difficultyNames:string[]=[];
   constructor(private qSetServ: QuestionSetService) {
@@ -32,6 +34,8 @@ export class NewGameComponent implements OnInit {
         console.log(this.categoryNames[i]);
         console.log(this.questions[i]);
       }
+
+
 
       this.difficultyNames = new Array<string>(this.questions.length);
       for (let j = 0; j < this.questions.length; j++) {

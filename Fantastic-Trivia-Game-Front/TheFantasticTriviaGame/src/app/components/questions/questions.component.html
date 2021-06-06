@@ -2,7 +2,7 @@
     <!--heading-->
     <div class='row align-items-center mt-1 mb-2'>
         <div class='col d-flex justify-content-center'>
-            <h3 class="fw-bold">Game {{question}}-{{difficulty}}</h3>
+            <h3 class="fw-bold">Game {{question}}:{{difficulty}}</h3>
         </div>
     </div>
 
@@ -18,7 +18,7 @@
     <div class='row align-items-center mt-5 mb-3'>
         <div class='col d-flex justify-content-end'>
             <br>
-            <button class='btn btn-secondary'>Quit</button>
+            <button (click)= "goBack()" class='btn btn-secondary'>Quit</button>
         </div>
     </div>
 
@@ -27,7 +27,9 @@
     <div class='row align-items-start mb-4'>
 
         <div class='col '>
-            <p class='w-100 bg-light p-2'>Question 1: {{question}}</p>
+            <div *ngFor = 'let pool of poolQuestion; let k = index'>
+            <p class='w-100 bg-light p-2'>Question 1: {{poolQuestion[k]}}</p>
+          </div>
 
             <div class="form-check">
                 <input type="radio" id="male" name="gender" value="male">
@@ -49,7 +51,7 @@
 
     </div>
 
-    
+
     <!--submit button-->
 
     <div class='row align-items-end mb-5'>
