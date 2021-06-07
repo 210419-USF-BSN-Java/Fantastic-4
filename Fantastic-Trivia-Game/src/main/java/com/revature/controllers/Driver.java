@@ -23,8 +23,8 @@ public class Driver {
 		qSet.setDifficultyId(difficultyId);
 		qSet.setNumQuestions(numQuestions);
 		
-	    String qPool = qServ.getQuestionsFromSet(1);
-	    System.out.println(qPool.toString());
+	    //String qPool = qServ.getQuestionsFromSet(1);
+	   // System.out.println(qPool.toString());
 		
 		
 		//QuestionPool response = rt.getForObject("https://opentdb.com/api.php?amount="+numQuestions+"&category="+categoryId+"&difficulty="+setDifficulty+"&type=multiple", QuestionPool.class);
