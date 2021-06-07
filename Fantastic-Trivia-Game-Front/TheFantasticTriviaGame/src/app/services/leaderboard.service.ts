@@ -8,8 +8,8 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class LeaderboardService {
-  //private url: string = 'http://18.117.105.101:8090/';
-  private url: string = 'http://localhost:8090/';
+  private url: string = 'http://18.117.105.101:8090/';
+ // private url: string = 'http://localhost:8090/';
 
   constructor(private http: HttpClient) { }
 
