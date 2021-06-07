@@ -3,6 +3,8 @@ package com.revature.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -71,7 +73,7 @@ public class QuestionService {
 		}
 		
 	// This is the service to get questions from API returns the question pool results.
-		public String getQuestionsFromSet(int setId) {
+		public ResponseEntity<String> getQuestionsFromSet(int setId) {
 			
 			QuestionSet qSet = qRepo.getById(setId);
 			int categoryId = qSet.getCategoryId();
@@ -91,7 +93,7 @@ public class QuestionService {
 			
 			String apiURL = "https://opentdb.com/api.php?amount="+numQuestions+"&category="+categoryId+"&difficulty="+setDiff+"&type=multiple";
 			
-			return apiURL;
+			return new ResponseEntity<String>(apiURL, HttpStatus.OK);
 		}
 		
 		//Is this not the same as select question set?

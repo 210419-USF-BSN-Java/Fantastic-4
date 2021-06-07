@@ -1,6 +1,7 @@
+
 import { difficulty } from './../models/questionSet';
 import { QuestionPool, poolCategory, poolDifficulty } from './../models/questionPool';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError, of,from, forkJoin } from 'rxjs';
 import { catchError, map, mapTo, pluck, switchMap } from 'rxjs/operators';
@@ -15,10 +16,13 @@ export class QuestionPoolService {
 
   constructor(private http: HttpClient) {}
 
-  getQuestionPool(id:number):Observable<QuestionPool[]> {
+  getQuestionPool(numQuestions:string, categoryId:string, setDiff:string):Observable<any> {
 
-    return this.http.get<QuestionPool[]>(`${this.url}question-set/${id}`).pipe(catchError(this.errorHandler)
 
+    const params = new HttpParams().set('amount',10).set('category',9).set('difficulty','easy').set('type','multiple');
+
+    return this.http.get('https://opentdb.com/api.php', { params: params }).pipe(catchError(this.errorHandler)
+    , map(res => res)
     );
 //this.url + 'question-set/'+ id
   }

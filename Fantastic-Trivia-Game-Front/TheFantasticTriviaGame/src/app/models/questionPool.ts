@@ -6,7 +6,7 @@ export interface QuestionPool{
   difficulty: string;
   triviaQuestion: string;
   right_answer: string;
-  wrong_answers: string[];
+  wrong_answers: string;
 
 }
 

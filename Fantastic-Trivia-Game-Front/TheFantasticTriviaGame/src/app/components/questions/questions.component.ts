@@ -25,7 +25,10 @@ export class QuestionsComponent implements OnInit {
   questionpool: QuestionPool[] = [];
   poolQuestion:string[] = [];
   rightAnswer:string[]= [];
-  wrongAnswer:string[][]= [];
+  wrongAnswer:string= '';
+
+  numbQuest:string = '';
+  catId:string = '';
 
 
   constructor(private qpServ:QuestionPoolService,
@@ -38,6 +41,8 @@ export class QuestionsComponent implements OnInit {
     let questionSetIdStr = this.router.snapshot.paramMap.get('id');
 
     let questionSetId:number = 0;
+
+
 
     if (questionSetIdStr!=null){
       questionSetId =parseInt(questionSetIdStr);
@@ -53,6 +58,9 @@ export class QuestionsComponent implements OnInit {
        if(questionSetId == this.questions[i].id ){
         this.question = category[(this.questions[i].categoryId - 9)];
         this.difficulty =  difficulty[(this.questions[i].difficultyId - 1)]
+        this.numbQuest = (this.questions[i].numQuestions).toString();
+        this.catId = (this.questions[i].categoryId).toString();
+
        }
       }
     },
@@ -68,13 +76,7 @@ export class QuestionsComponent implements OnInit {
        this.questionpool= response;
 
       console.log(response);
-      console.log(this.questionpool)
-      console.log(response)
-
-
-
-
-
+      console.log(this.questionpool.length)
 
 
 
@@ -91,7 +93,8 @@ export class QuestionsComponent implements OnInit {
     },
     error: (error: Error) => console.log(error)
   };
-  this.qpServ.getQuestionPool(questionSetId).subscribe(myObserver);
+  console.log(this.difficulty)
+  this.qpServ.getQuestionPool(this.numbQuest,this.catId,this.difficulty).subscribe(myObserver);
 
 
 
