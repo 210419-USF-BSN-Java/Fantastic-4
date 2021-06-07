@@ -73,7 +73,7 @@ public class QuestionService {
 		}
 		
 	// This is the service to get questions from API returns the question pool results.
-		public ResponseEntity<String> getQuestionsFromSet(int setId) {
+		public String getQuestionsFromSet(int setId) {
 			
 			QuestionSet qSet = qRepo.getById(setId);
 			int categoryId = qSet.getCategoryId();
@@ -93,7 +93,8 @@ public class QuestionService {
 			
 			String apiURL = "https://opentdb.com/api.php?amount="+numQuestions+"&category="+categoryId+"&difficulty="+setDiff+"&type=multiple";
 			
-			return new ResponseEntity<String>(apiURL, HttpStatus.OK);
+			return apiURL;
+					//new ResponseEntity<String>(apiURL, HttpStatus.OK)
 		}
 		
 		//Is this not the same as select question set?
