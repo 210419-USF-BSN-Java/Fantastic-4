@@ -25,7 +25,7 @@ export class QuestionsComponent implements OnInit {
   questionpool: QuestionPool[] = [];
   poolQuestion:string[] = [];
   rightAnswer:string[]= [];
-  wrongAnswer:string[]= [];
+  wrongAnswer:string[][]= [];
 
 
   constructor(private qpServ:QuestionPoolService,
@@ -65,30 +65,33 @@ export class QuestionsComponent implements OnInit {
     //get the question pool
     const myObserver = {
       next: (response: QuestionPool[]) => {
-        this.questionpool= response;
+       this.questionpool= response;
+
       console.log(response);
       console.log(this.questionpool)
-      console.log(this.questionpool)
+      console.log(response)
 
 
 
 
 
 
-      // this.poolQuestion = new Array<string>(this.questionpool.length);
-      // for(let j = 0; j < this.questionpool.length; j++){
-      //   this.poolQuestion[j] = this.questionpool[j].question;
-      //   console.log(this.poolQuestion[j]);
 
 
-      // }
+      this.poolQuestion = new Array<string>(this.questionpool.length);
+      for(let j = 0; j < this.questionpool.length; j++){
+        this.poolQuestion[j] = this.questionpool[j].triviaQuestion;
+        console.log(this.poolQuestion[j]);
+
+
+      }
 
 
 
     },
     error: (error: Error) => console.log(error)
   };
-  this.qpServ.getQuestionPool(questionSetId).subscribe(myObserver );
+  this.qpServ.getQuestionPool(questionSetId).subscribe(myObserver);
 
 
 
