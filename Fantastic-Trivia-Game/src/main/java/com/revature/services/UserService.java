@@ -23,7 +23,6 @@ public class UserService {
 		this.uRepo = repo;
 	}
 
-	// Search user by id
 	public User searchUsersById(Integer id) {
 
 		try {
@@ -33,19 +32,16 @@ public class UserService {
 		}
 	}
 	
-	// Log in User
 	public User logIn(String username, String password) {
 
 		return uRepo.findUserByUsernameAndPassword(username, password);
 	}
 	
-	// Register User
 	public User saveUser(User u) {
 
 		return uRepo.saveAndFlush(u);
 	}
 	
-	// Ban User
 	public User banUser(int userID) {
 
 		User user = uRepo.getById(userID);
@@ -53,7 +49,6 @@ public class UserService {
 		return uRepo.saveAndFlush(user);
 	}
 	
-	// Un-ban/approve User
 	public User permitUser(int userID) {
 
 		User user = uRepo.getById(userID);
@@ -61,7 +56,6 @@ public class UserService {
 		return uRepo.saveAndFlush(user);
 	}
 	
-	// Delete a User
 	public int deleteUser(int userID) {
 		
 		User user = uRepo.getById(userID);

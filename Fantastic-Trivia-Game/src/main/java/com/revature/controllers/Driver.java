@@ -23,7 +23,7 @@ public class Driver {
 		qSet.setDifficultyId(difficultyId);
 		qSet.setNumQuestions(numQuestions);
 		
-	    QuestionPool qPool = qServ.getQuestionsFromSet(1);
+	    String qPool = qServ.getQuestionsFromSet(1);
 	    System.out.println(qPool.toString());
 		
 		
