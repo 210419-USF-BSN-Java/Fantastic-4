@@ -19,6 +19,12 @@ export class LeaderboardService {
 
   }
 
+  getAllScores():Observable<any>{
+    return this.http.get(this.url + 'leaderboard/').pipe(
+      catchError(this.errorHandler));
+
+  }
+
   errorHandler(error: HttpErrorResponse) {
     return throwError(error);
   }
