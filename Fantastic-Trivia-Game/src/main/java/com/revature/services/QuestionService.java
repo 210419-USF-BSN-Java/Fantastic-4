@@ -71,7 +71,7 @@ public class QuestionService {
 		}
 		
 	// This is the service to get questions from API returns the question pool results.
-		public QuestionPool getQuestionsFromSet(int setId) {
+		public String getQuestionsFromSet(int setId) {
 			
 			QuestionSet qSet = qRepo.getById(setId);
 			int categoryId = qSet.getCategoryId();
@@ -89,9 +89,9 @@ public class QuestionService {
 			
 			RestTemplate rt = new RestTemplate();
 			
-			QuestionPool response = rt.getForObject("https://opentdb.com/api.php?amount="+numQuestions+"&category="+categoryId+"&difficulty="+setDiff+"&type=multiple", QuestionPool.class);
+			String apiURL = "https://opentdb.com/api.php?amount="+numQuestions+"&category="+categoryId+"&difficulty="+setDiff+"&type=multiple";
 			
-			return response;
+			return apiURL;
 		}
 		
 		//Is this not the same as select question set?

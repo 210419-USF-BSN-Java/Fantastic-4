@@ -56,12 +56,12 @@ public class QuestionSetController {
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<QuestionPool> GetQuestionsQuestionSetById(@PathVariable("id") Integer id) {
+	public ResponseEntity<String> GetQuestionsQuestionSetById(@PathVariable("id") Integer id) {
 		
 
-		QuestionPool retrieved = qServ.getQuestionsFromSet(id);
+		String retrieved = qServ.getQuestionsFromSet(id);
 
-		return new ResponseEntity<QuestionPool>(retrieved, HttpStatus.OK);
+		return new ResponseEntity<String>(retrieved, HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/{id}/score")
