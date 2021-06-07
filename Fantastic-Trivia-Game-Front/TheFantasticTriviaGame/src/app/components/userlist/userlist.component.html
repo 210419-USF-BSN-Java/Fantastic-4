@@ -13,8 +13,8 @@
                     <tr>
                         <th>Username</th>
                         <th>Email</th>
-                        <th>Overall Rank</th>
-                        <th>Number of Questions </th>
+                       <!--  <th>Overall Rank</th>
+                        <th>Number of Questions </th>-->
                         <th>User Type</th>
                         <th>Action</th>
                     </tr>
@@ -24,8 +24,8 @@
                     <tr *ngFor="let user of userList" [ngClass]="{'text-secondary':user.statusId == 2 }">
                         <td>{{user.username}}</td>
                         <td>{{user.email}}</td>
-                        <td>Overall Rank1</td>
-                        <td>Number of Questions1 </td>
+                       <!--<td>Overall Rank1</td>
+                        <td>Number of Questions1 </td>-->
                         <td>{{user.roleId}}</td>
                         <td><i class="fas fa-info-circle" (click)='viewUser(user.id)'></i>&nbsp;&nbsp;&nbsp;&nbsp;
                             <span *ngIf='user.statusId == 2 && currentUser != user.id'>
